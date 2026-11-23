@@ -10,6 +10,7 @@ namespace AfterLife.Player
     public class PlayerController : MonoBehaviour
     {
         private const float MoveDeadZone = .01f;
+        private const float GroundedMaxRiseSpeed = 0.01f;
 
         [Header("Movement")]
         [SerializeField, Min(0f)]
@@ -21,6 +22,15 @@ namespace AfterLife.Player
         [Tooltip("Upward speed applied when jumping.")]
         [SerializeField, Min(0f)]
         private float jumpVelocity = 13f;
+        [Tooltip("Seconds after leaving a ledge during which a jump is still allowed.")]
+        [SerializeField, Min(0f)]
+        private float coyoteTime = 0.1f;
+        [Tooltip("Seconds a jump press is remembered before landing.")]
+        [SerializeField, Min(0f)]
+        private float jumpBufferTime = 0.1f;
+        [Tooltip("Upward speed multiplier when the jump button is released early.")]
+        [SerializeField, Range(0f, 1f)]
+        private float jumpCutMultiplier = 0.5f;
 
         [Header("Ground Check")]
         [SerializeField]
@@ -36,8 +46,9 @@ namespace AfterLife.Player
         private InputAction jumpAction;
 
         private float moveInput;
+        private float coyoteTimer;
+        private float jumpBufferTimer;
         private bool isFacingRight = true;
-        private const float GroundedMaxRiseSpeed = 0.01f;
 
         /// <summary>True while the player stands on a ground layer.</summary>
         public bool IsGrounded { get; private set; }
@@ -90,7 +101,9 @@ namespace AfterLife.Player
             moveInput = moveAction.ReadValue<float>();
             UpdateFacing();
             UpdateGroundedState();
+            UpdateJumpTimers();
             TryJump();
+            ApplyJumpCut();
         }
 
         /// <summary>Applies horizontal velocity in the physics step.</summary>
@@ -107,15 +120,35 @@ namespace AfterLife.Player
             IsGrounded = touchingGround && body.linearVelocity.y <= GroundedMaxRiseSpeed;
         }
 
-        /// <summary>Jumps when the button was pressed this frame and the player is grounded.</summary>
+        /// <summary>Refreshes the coyote and jump-buffer timers.</summary>
+        private void UpdateJumpTimers()
+        {
+            coyoteTimer = IsGrounded ? coyoteTime : coyoteTimer - Time.deltaTime;
+            jumpBufferTimer = jumpAction.WasPressedThisFrame() ? jumpBufferTime : jumpBufferTimer - Time.deltaTime;
+        }
+
+        /// <summary>Jumps when a buffered press meets a valid coyote window.</summary>
         private void TryJump()
         {
-            if (!jumpAction.WasPressedThisFrame() || !IsGrounded)
+            if (jumpBufferTimer <= 0f || coyoteTimer <= 0f)
             {
                 return;
             }
 
             body.linearVelocity = new Vector2(body.linearVelocity.x, jumpVelocity);
+            jumpBufferTimer = 0f;
+            coyoteTimer = 0f;
+        }
+
+        /// <summary>Shortens the jump when the button is released while still rising.</summary>
+        private void ApplyJumpCut()
+        {
+            if (!jumpAction.WasReleasedThisFrame() || body.linearVelocity.y <= 0f)
+            {
+                return;
+            }
+
+            body.linearVelocity = new Vector2(body.linearVelocity.x, body.linearVelocity.y * jumpCutMultiplier);
         }
 
         /// <summary>Flips the sprite to face the movement direction.</summary>

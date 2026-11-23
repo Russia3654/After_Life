@@ -9,8 +9,8 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 1,
-      "community_name": "PlayerController.cs",
+      "community": 2,
+      "community_name": "PlayerController",
       "file_type": "code",
       "metadata": {
         "namespace": "AfterLife.Player",
@@ -21,6 +21,194 @@
       "norm_label": "playercontroller",
       "source_file": "Assets/Scripts/Player/PlayerController.cs",
       "source_location": "L10"
+    },
+    {
+      "id": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_fixedupdate",
+      "label": ".FixedUpdate()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "PlayerController",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "AfterLife.Player",
+        "scope_chain": [
+          "s54"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "IsPressed",
+            "receiver_type": "InputAction",
+            "lang": "csharp",
+            "line": "L72"
+          }
+        ]
+      },
+      "norm_label": ".fixedupdate()",
+      "source_file": "Assets/Scripts/Player/PlayerController.cs",
+      "source_location": "L70"
+    },
+    {
+      "id": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_ondestroy",
+      "label": ".OnDestroy()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "PlayerController",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "AfterLife.Player",
+        "scope_chain": [
+          "s54"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "Dispose",
+            "receiver_type": "InputAction",
+            "lang": "csharp",
+            "line": "L58"
+          }
+        ]
+      },
+      "norm_label": ".ondestroy()",
+      "source_file": "Assets/Scripts/Player/PlayerController.cs",
+      "source_location": "L56"
+    },
+    {
+      "id": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_ondisable",
+      "label": ".OnDisable()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "PlayerController",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "AfterLife.Player",
+        "scope_chain": [
+          "s54"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "Disable",
+            "receiver_type": "InputAction",
+            "lang": "csharp",
+            "line": "L51"
+          }
+        ]
+      },
+      "norm_label": ".ondisable()",
+      "source_file": "Assets/Scripts/Player/PlayerController.cs",
+      "source_location": "L49"
+    },
+    {
+      "id": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_onenable",
+      "label": ".OnEnable()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "PlayerController",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "AfterLife.Player",
+        "scope_chain": [
+          "s54"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "Enable",
+            "receiver_type": "InputAction",
+            "lang": "csharp",
+            "line": "L44"
+          }
+        ]
+      },
+      "norm_label": ".onenable()",
+      "source_file": "Assets/Scripts/Player/PlayerController.cs",
+      "source_location": "L42"
+    },
+    {
+      "id": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_awake",
+      "label": ".Awake()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": ".Awake",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "AfterLife.Player",
+        "scope_chain": [
+          "s54"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "AddCompositeBinding",
+            "receiver_type": "InputAction",
+            "lang": "csharp",
+            "line": "L33"
+          },
+          {
+            "callee": "AddBinding",
+            "receiver_type": "InputAction",
+            "lang": "csharp",
+            "line": "L37"
+          }
+        ]
+      },
+      "norm_label": ".awake()",
+      "source_file": "Assets/Scripts/Player/PlayerController.cs",
+      "source_location": "L29"
+    },
+    {
+      "id": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_update",
+      "label": ".Update()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": ".Update",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "AfterLife.Player",
+        "scope_chain": [
+          "s54"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "ReadValue",
+            "receiver_type": "InputAction",
+            "lang": "csharp",
+            "line": "L65"
+          }
+        ]
+      },
+      "norm_label": ".update()",
+      "source_file": "Assets/Scripts/Player/PlayerController.cs",
+      "source_location": "L63"
+    },
+    {
+      "id": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_updatefacing",
+      "label": ".UpdateFacing()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": ".Update",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "AfterLife.Player",
+        "scope_chain": [
+          "s54"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "Abs",
+            "receiver_type": "Mathf",
+            "lang": "csharp",
+            "line": "L79"
+          }
+        ]
+      },
+      "norm_label": ".updatefacing()",
+      "source_file": "Assets/Scripts/Player/PlayerController.cs",
+      "source_location": "L77"
     },
     {
       "id": "claude",
@@ -56,7 +244,7 @@
       "node_kind": "heading",
       "norm_label": "game design (agreed)",
       "source_file": "CLAUDE.md",
-      "source_location": "L27"
+      "source_location": "L28"
     },
     {
       "id": "claude_graphify",
@@ -68,7 +256,7 @@
       "node_kind": "heading",
       "norm_label": "graphify",
       "source_file": "CLAUDE.md",
-      "source_location": "L53"
+      "source_location": "L54"
     },
     {
       "id": "claude_how_we_work_rules",
@@ -92,7 +280,7 @@
       "node_kind": "heading",
       "norm_label": "stages",
       "source_file": "CLAUDE.md",
-      "source_location": "L40"
+      "source_location": "L41"
     },
     {
       "id": "claude_the_other_side_unity_project_after_life",
@@ -134,19 +322,42 @@
       "type": "namespace"
     },
     {
+      "id": "inputaction",
+      "label": "InputAction",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "PlayerController",
+      "file_type": "code",
+      "norm_label": "inputaction",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
       "id": "monobehaviour",
       "label": "MonoBehaviour",
       "_origin": "ast",
-      "community": 1,
-      "community_name": "PlayerController.cs",
+      "community": 2,
+      "community_name": "PlayerController",
       "file_type": "code",
       "norm_label": "monobehaviour",
       "source_file": "",
       "source_location": ""
     },
     {
+      "id": "rigidbody2d",
+      "label": "Rigidbody2D",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": ".Awake",
+      "file_type": "code",
+      "norm_label": "rigidbody2d",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
       "id": "unityengine",
       "label": "unityengine",
+      "_origin": "semantic",
       "community": 1,
       "community_name": "PlayerController.cs",
       "external": true,
@@ -158,6 +369,7 @@
     {
       "id": "unityengine_inputsystem",
       "label": "unityengine_inputsystem",
+      "_origin": "semantic",
       "community": 1,
       "community_name": "PlayerController.cs",
       "external": true,
@@ -168,6 +380,63 @@
     }
   ],
   "links": [
+    {
+      "source": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_update",
+      "target": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_updatefacing",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Assets/Scripts/Player/PlayerController.cs",
+      "source_location": "L66",
+      "weight": 1.0
+    },
+    {
+      "source": "assets_scripts_player_playercontroller_afterlife_player_playercontroller",
+      "target": "inputaction",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "metadata": {
+        "ref_token": "InputAction"
+      },
+      "source_file": "Assets/Scripts/Player/PlayerController.cs",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "assets_scripts_player_playercontroller_afterlife_player_playercontroller",
+      "target": "rigidbody2d",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "metadata": {
+        "ref_token": "Rigidbody2D"
+      },
+      "source_file": "Assets/Scripts/Player/PlayerController.cs",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_awake",
+      "target": "rigidbody2d",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "generic_arg",
+      "metadata": {
+        "ref_token": "Rigidbody2D"
+      },
+      "source_file": "Assets/Scripts/Player/PlayerController.cs",
+      "source_location": "L30",
+      "weight": 1.0
+    },
     {
       "source": "assets_scripts_player_playercontroller",
       "target": "unityengine",
@@ -268,7 +537,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CLAUDE.md",
-      "source_location": "L27",
+      "source_location": "L28",
       "weight": 1.0
     },
     {
@@ -279,7 +548,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CLAUDE.md",
-      "source_location": "L40",
+      "source_location": "L41",
       "weight": 1.0
     },
     {
@@ -290,7 +559,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CLAUDE.md",
-      "source_location": "L53",
+      "source_location": "L54",
       "weight": 1.0
     },
     {
@@ -303,8 +572,85 @@
       "source_file": "CLAUDE.md",
       "source_location": "L6",
       "weight": 1.0
+    },
+    {
+      "source": "assets_scripts_player_playercontroller_afterlife_player_playercontroller",
+      "target": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_awake",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Assets/Scripts/Player/PlayerController.cs",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "assets_scripts_player_playercontroller_afterlife_player_playercontroller",
+      "target": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_onenable",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Assets/Scripts/Player/PlayerController.cs",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "assets_scripts_player_playercontroller_afterlife_player_playercontroller",
+      "target": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_ondisable",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Assets/Scripts/Player/PlayerController.cs",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "assets_scripts_player_playercontroller_afterlife_player_playercontroller",
+      "target": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_ondestroy",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Assets/Scripts/Player/PlayerController.cs",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "assets_scripts_player_playercontroller_afterlife_player_playercontroller",
+      "target": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_update",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Assets/Scripts/Player/PlayerController.cs",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "assets_scripts_player_playercontroller_afterlife_player_playercontroller",
+      "target": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_fixedupdate",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Assets/Scripts/Player/PlayerController.cs",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "assets_scripts_player_playercontroller_afterlife_player_playercontroller",
+      "target": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_updatefacing",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Assets/Scripts/Player/PlayerController.cs",
+      "source_location": "L77",
+      "weight": 1.0
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "57d47bc4a0bdfb065fd19f9f88567f355895325a"
+  "built_at_commit": "20bad33890045784023a8c7ecf5b111e320e616b"
 }

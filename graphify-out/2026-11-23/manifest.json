@@ -6,9 +6,9 @@
     "semantic_hash": ""
   },
   "Assets/Scripts/Player/PlayerController.cs": {
-    "mtime": 1795420848.50188,
-    "seen": 1795422028.847103,
-    "ast_hash": "f5fe22fc5898766be5621d8169829820",
+    "mtime": 1795423022.1320305,
+    "seen": 1795423364.3609614,
+    "ast_hash": "477828c923a8f301d69687872acfd8e1",
     "semantic_hash": ""
   },
   "Assets/Welcome/Welcome2DScript.cs": {
@@ -42,9 +42,9 @@
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1795420911.4928994,
-    "seen": 1795422028.847109,
-    "ast_hash": "69bf7b7c29b778c48681fe6366a12d8e",
+    "mtime": 1795423361.9893496,
+    "seen": 1795423364.3609705,
+    "ast_hash": "d98383423cd7671a7a9036c5284dd31b",
     "semantic_hash": ""
   },
   "ProjectSettings/ProjectVersion.txt": {
