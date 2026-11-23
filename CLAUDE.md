@@ -11,6 +11,7 @@ Deadline 2026-12-11; target finish about 2026-11-30.
 - Token economy: short replies, no repeated context, no unrequested prose. Read the graphify graph before reading source files.
 - Half-vibe-coded: the user reads and owns the code. Keep it clear.
 - Git: never add a Co-Authored-By trailer or any Claude/AI attribution to commits or PRs. The repo credits the user only.
+- Teaching pace: split every stage into small steps (1.1, 1.2, ...). Each step adds one concept (about 80 lines of code at most), ends with a test the user can see in Play mode, and a commit. Explain briefly what the new code does and why.
 - Simplicity first: one-week scope. If something is risky or slow, propose a simpler alternative. No over-engineering, no third-party packages, free or built-in assets only.
 
 ## Code style (AAA, not junior)
