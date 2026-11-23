@@ -1,17 +1,17 @@
 # Graph Report - After LIfe  (2026-11-23)
 
 ## Corpus Check
-- 8 files · ~32,406 words
+- 8 files · ~32,536 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 75 file(s) not represented in the graph (top: .meta 33, .asset 33, .unity 3)
 
 ## Summary
-- 29 nodes · 31 edges · 5 communities (1 shown, 4 thin omitted)
+- 31 nodes · 35 edges · 5 communities (1 shown, 4 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `b9ded3bc`
+- Built from commit: `d33bedaf`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -21,7 +21,7 @@
 - PlayerController
 
 ## God Nodes (most connected - your core abstractions)
-1. `PlayerController` - 18 edges
+1. `PlayerController` - 20 edges
 2. `The Other Side (Unity project "After LIfe")` - 6 edges
 3. `AfterLife.Player` - 1 edges
 4. `IsGrounded` - 1 edges
@@ -53,6 +53,6 @@ Nodes (6): Code style (AAA, not junior), Game design (agreed), graphify, How we 
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `PlayerController` connect `PlayerController` to `PlayerController.cs`, `.Awake`, `.Update`?**
-  _High betweenness centrality (0.525) - this node is a cross-community bridge._
+  _High betweenness centrality (0.543) - this node is a cross-community bridge._
 - **What connects `AfterLife.Player`, `IsGrounded`, `Code style (AAA, not junior)` to the rest of the system?**
   _7 weakly-connected nodes found - possible documentation gaps or missing edges._

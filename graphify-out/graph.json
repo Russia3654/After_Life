@@ -40,13 +40,13 @@
             "callee": "IsPressed",
             "receiver_type": "InputAction",
             "lang": "csharp",
-            "line": "L99"
+            "line": "L112"
           }
         ]
       },
       "norm_label": ".fixedupdate()",
       "source_file": "Assets/Scripts/Player/PlayerController.cs",
-      "source_location": "L97"
+      "source_location": "L110"
     },
     {
       "id": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_ondestroy",
@@ -66,13 +66,13 @@
             "callee": "Dispose",
             "receiver_type": "InputAction",
             "lang": "csharp",
-            "line": "L82"
+            "line": "L93"
           }
         ]
       },
       "norm_label": ".ondestroy()",
       "source_file": "Assets/Scripts/Player/PlayerController.cs",
-      "source_location": "L80"
+      "source_location": "L91"
     },
     {
       "id": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_ondisable",
@@ -92,13 +92,13 @@
             "callee": "Disable",
             "receiver_type": "InputAction",
             "lang": "csharp",
-            "line": "L74"
+            "line": "L85"
           }
         ]
       },
       "norm_label": ".ondisable()",
       "source_file": "Assets/Scripts/Player/PlayerController.cs",
-      "source_location": "L72"
+      "source_location": "L83"
     },
     {
       "id": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_ondrawgizmosselected",
@@ -118,13 +118,13 @@
             "callee": "DrawWireCube",
             "receiver_type": "Gizmos",
             "lang": "csharp",
-            "line": "L144"
+            "line": "L177"
           }
         ]
       },
       "norm_label": ".ondrawgizmosselected()",
       "source_file": "Assets/Scripts/Player/PlayerController.cs",
-      "source_location": "L136"
+      "source_location": "L169"
     },
     {
       "id": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_onenable",
@@ -144,13 +144,13 @@
             "callee": "Enable",
             "receiver_type": "InputAction",
             "lang": "csharp",
-            "line": "L66"
+            "line": "L77"
           }
         ]
       },
       "norm_label": ".onenable()",
       "source_file": "Assets/Scripts/Player/PlayerController.cs",
-      "source_location": "L64"
+      "source_location": "L75"
     },
     {
       "id": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_awake",
@@ -170,19 +170,45 @@
             "callee": "AddCompositeBinding",
             "receiver_type": "InputAction",
             "lang": "csharp",
-            "line": "L51"
+            "line": "L62"
           },
           {
             "callee": "AddBinding",
             "receiver_type": "InputAction",
             "lang": "csharp",
-            "line": "L55"
+            "line": "L66"
           }
         ]
       },
       "norm_label": ".awake()",
       "source_file": "Assets/Scripts/Player/PlayerController.cs",
-      "source_location": "L46"
+      "source_location": "L57"
+    },
+    {
+      "id": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_applyjumpcut",
+      "label": ".ApplyJumpCut()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": ".Update",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "AfterLife.Player",
+        "scope_chain": [
+          "s54"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "WasReleasedThisFrame",
+            "receiver_type": "InputAction",
+            "lang": "csharp",
+            "line": "L146"
+          }
+        ]
+      },
+      "norm_label": ".applyjumpcut()",
+      "source_file": "Assets/Scripts/Player/PlayerController.cs",
+      "source_location": "L144"
     },
     {
       "id": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_tryjump",
@@ -196,19 +222,11 @@
         "namespace": "AfterLife.Player",
         "scope_chain": [
           "s54"
-        ],
-        "unresolved_calls": [
-          {
-            "callee": "WasPressedThisFrame",
-            "receiver_type": "InputAction",
-            "lang": "csharp",
-            "line": "L113"
-          }
         ]
       },
       "norm_label": ".tryjump()",
       "source_file": "Assets/Scripts/Player/PlayerController.cs",
-      "source_location": "L111"
+      "source_location": "L131"
     },
     {
       "id": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_update",
@@ -228,13 +246,13 @@
             "callee": "ReadValue",
             "receiver_type": "InputAction",
             "lang": "csharp",
-            "line": "L90"
+            "line": "L101"
           }
         ]
       },
       "norm_label": ".update()",
       "source_file": "Assets/Scripts/Player/PlayerController.cs",
-      "source_location": "L88"
+      "source_location": "L99"
     },
     {
       "id": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_updatefacing",
@@ -254,13 +272,13 @@
             "callee": "Abs",
             "receiver_type": "Mathf",
             "lang": "csharp",
-            "line": "L124"
+            "line": "L157"
           }
         ]
       },
       "norm_label": ".updatefacing()",
       "source_file": "Assets/Scripts/Player/PlayerController.cs",
-      "source_location": "L122"
+      "source_location": "L155"
     },
     {
       "id": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_updategroundedstate",
@@ -280,13 +298,39 @@
             "callee": "OverlapBox",
             "receiver_type": "Physics2D",
             "lang": "csharp",
-            "line": "L106"
+            "line": "L119"
           }
         ]
       },
       "norm_label": ".updategroundedstate()",
       "source_file": "Assets/Scripts/Player/PlayerController.cs",
-      "source_location": "L104"
+      "source_location": "L117"
+    },
+    {
+      "id": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_updatejumptimers",
+      "label": ".UpdateJumpTimers()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": ".Update",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "AfterLife.Player",
+        "scope_chain": [
+          "s54"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "WasPressedThisFrame",
+            "receiver_type": "InputAction",
+            "lang": "csharp",
+            "line": "L127"
+          }
+        ]
+      },
+      "norm_label": ".updatejumptimers()",
+      "source_file": "Assets/Scripts/Player/PlayerController.cs",
+      "source_location": "L124"
     },
     {
       "id": "claude",
@@ -414,7 +458,7 @@
       },
       "norm_label": "isgrounded",
       "source_file": "Assets/Scripts/Player/PlayerController.cs",
-      "source_location": "L43"
+      "source_location": "L54"
     },
     {
       "id": "inputaction",
@@ -517,7 +561,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Assets/Scripts/Player/PlayerController.cs",
-      "source_location": "L91",
+      "source_location": "L102",
       "weight": 1.0
     },
     {
@@ -529,7 +573,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Assets/Scripts/Player/PlayerController.cs",
-      "source_location": "L92",
+      "source_location": "L103",
+      "weight": 1.0
+    },
+    {
+      "source": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_update",
+      "target": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_updatejumptimers",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Assets/Scripts/Player/PlayerController.cs",
+      "source_location": "L104",
       "weight": 1.0
     },
     {
@@ -541,7 +597,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Assets/Scripts/Player/PlayerController.cs",
-      "source_location": "L93",
+      "source_location": "L105",
+      "weight": 1.0
+    },
+    {
+      "source": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_update",
+      "target": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_applyjumpcut",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Assets/Scripts/Player/PlayerController.cs",
+      "source_location": "L106",
       "weight": 1.0
     },
     {
@@ -556,7 +624,7 @@
         "ref_token": "InputAction"
       },
       "source_file": "Assets/Scripts/Player/PlayerController.cs",
-      "source_location": "L36",
+      "source_location": "L46",
       "weight": 1.0
     },
     {
@@ -571,7 +639,7 @@
         "ref_token": "LayerMask"
       },
       "source_file": "Assets/Scripts/Player/PlayerController.cs",
-      "source_location": "L30",
+      "source_location": "L40",
       "weight": 1.0
     },
     {
@@ -586,7 +654,7 @@
         "ref_token": "Rigidbody2D"
       },
       "source_file": "Assets/Scripts/Player/PlayerController.cs",
-      "source_location": "L33",
+      "source_location": "L43",
       "weight": 1.0
     },
     {
@@ -601,7 +669,7 @@
         "ref_token": "Transform"
       },
       "source_file": "Assets/Scripts/Player/PlayerController.cs",
-      "source_location": "L25",
+      "source_location": "L35",
       "weight": 1.0
     },
     {
@@ -616,7 +684,7 @@
         "ref_token": "Vector2"
       },
       "source_file": "Assets/Scripts/Player/PlayerController.cs",
-      "source_location": "L28",
+      "source_location": "L38",
       "weight": 1.0
     },
     {
@@ -628,7 +696,7 @@
       "confidence_score": 1.0,
       "context": "field",
       "source_file": "Assets/Scripts/Player/PlayerController.cs",
-      "source_location": "L43",
+      "source_location": "L54",
       "weight": 1.0
     },
     {
@@ -643,7 +711,7 @@
         "ref_token": "Rigidbody2D"
       },
       "source_file": "Assets/Scripts/Player/PlayerController.cs",
-      "source_location": "L48",
+      "source_location": "L59",
       "weight": 1.0
     },
     {
@@ -784,13 +852,35 @@
     },
     {
       "source": "assets_scripts_player_playercontroller_afterlife_player_playercontroller",
+      "target": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_fixedupdate",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Assets/Scripts/Player/PlayerController.cs",
+      "source_location": "L110",
+      "weight": 1.0
+    },
+    {
+      "source": "assets_scripts_player_playercontroller_afterlife_player_playercontroller",
       "target": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_updategroundedstate",
       "relation": "method",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Assets/Scripts/Player/PlayerController.cs",
-      "source_location": "L104",
+      "source_location": "L117",
+      "weight": 1.0
+    },
+    {
+      "source": "assets_scripts_player_playercontroller_afterlife_player_playercontroller",
+      "target": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_updatejumptimers",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Assets/Scripts/Player/PlayerController.cs",
+      "source_location": "L124",
       "weight": 1.0
     },
     {
@@ -801,7 +891,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Assets/Scripts/Player/PlayerController.cs",
-      "source_location": "L111",
+      "source_location": "L131",
+      "weight": 1.0
+    },
+    {
+      "source": "assets_scripts_player_playercontroller_afterlife_player_playercontroller",
+      "target": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_applyjumpcut",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Assets/Scripts/Player/PlayerController.cs",
+      "source_location": "L144",
       "weight": 1.0
     },
     {
@@ -812,7 +913,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Assets/Scripts/Player/PlayerController.cs",
-      "source_location": "L122",
+      "source_location": "L155",
       "weight": 1.0
     },
     {
@@ -823,7 +924,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Assets/Scripts/Player/PlayerController.cs",
-      "source_location": "L136",
+      "source_location": "L169",
       "weight": 1.0
     },
     {
@@ -834,7 +935,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Assets/Scripts/Player/PlayerController.cs",
-      "source_location": "L46",
+      "source_location": "L57",
       "weight": 1.0
     },
     {
@@ -845,7 +946,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Assets/Scripts/Player/PlayerController.cs",
-      "source_location": "L64",
+      "source_location": "L75",
       "weight": 1.0
     },
     {
@@ -856,7 +957,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Assets/Scripts/Player/PlayerController.cs",
-      "source_location": "L72",
+      "source_location": "L83",
       "weight": 1.0
     },
     {
@@ -867,7 +968,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Assets/Scripts/Player/PlayerController.cs",
-      "source_location": "L80",
+      "source_location": "L91",
       "weight": 1.0
     },
     {
@@ -878,21 +979,10 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Assets/Scripts/Player/PlayerController.cs",
-      "source_location": "L88",
-      "weight": 1.0
-    },
-    {
-      "source": "assets_scripts_player_playercontroller_afterlife_player_playercontroller",
-      "target": "assets_scripts_player_playercontroller_afterlife_player_playercontroller_fixedupdate",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "Assets/Scripts/Player/PlayerController.cs",
-      "source_location": "L97",
+      "source_location": "L99",
       "weight": 1.0
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "b9ded3bc0d87d7f808292bf9d43880814d634dcf"
+  "built_at_commit": "d33bedaf8120e775494bf818d69d2745611bfd3b"
 }
