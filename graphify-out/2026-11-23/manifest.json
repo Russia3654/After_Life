@@ -1,0 +1,62 @@
+{
+  ".claude/settings.json": {
+    "mtime": 1795418629.70611,
+    "seen": 1795422028.8470986,
+    "ast_hash": "6d2f1978823f5d4a40d4049f7b75aca9",
+    "semantic_hash": ""
+  },
+  "Assets/Scripts/Player/PlayerController.cs": {
+    "mtime": 1795420848.50188,
+    "seen": 1795422028.847103,
+    "ast_hash": "f5fe22fc5898766be5621d8169829820",
+    "semantic_hash": ""
+  },
+  "Assets/Welcome/Welcome2DScript.cs": {
+    "mtime": 1783057764.0,
+    "seen": 1795422028.8471053,
+    "ast_hash": "b16a00a8ebb3958cb63a03b38a865f8d",
+    "semantic_hash": ""
+  },
+  "Packages/manifest.json": {
+    "mtime": 1795419055.00824,
+    "seen": 1795422028.847106,
+    "ast_hash": "f35dd4e514acff4cc790828289b4fd47",
+    "semantic_hash": ""
+  },
+  "Packages/packages-lock.json": {
+    "mtime": 1795419055.0401793,
+    "seen": 1795422028.847107,
+    "ast_hash": "ad61336db5d79a20eb8ca7f6d67ca749",
+    "semantic_hash": ""
+  },
+  "ProjectSettings/Packages/com.unity.learn.iet-framework/Settings.json": {
+    "mtime": 1795419120.2810752,
+    "seen": 1795422028.8471076,
+    "ast_hash": "f4988debef69723381b17eb7606d9421",
+    "semantic_hash": ""
+  },
+  "ProjectSettings/SceneTemplateSettings.json": {
+    "mtime": 1795421517.2480788,
+    "seen": 1795422028.8471086,
+    "ast_hash": "eeb26e313b89cd9334b828428a4847ef",
+    "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1795420911.4928994,
+    "seen": 1795422028.847109,
+    "ast_hash": "69bf7b7c29b778c48681fe6366a12d8e",
+    "semantic_hash": ""
+  },
+  "ProjectSettings/ProjectVersion.txt": {
+    "mtime": 1795418189.3885963,
+    "seen": 1795422028.8471098,
+    "ast_hash": "b5bc1dc12af0c40ad643888bd7b067cc",
+    "semantic_hash": ""
+  },
+  "Assets/Welcome/2d-template.png": {
+    "mtime": 1783057764.0,
+    "seen": 1795422028.8471107,
+    "ast_hash": "7b666c9379bdf2be2bff6ed6aff20d8f",
+    "semantic_hash": ""
+  }
+}

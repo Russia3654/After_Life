@@ -4,8 +4,7 @@ using UnityEngine.InputSystem;
 namespace AfterLife.Player
 {
     /// <summary>
-    /// Side-view platformer movement: walk, run, jump with coyote time,
-    /// jump buffering and variable jump height. Input actions are defined in code.
+    /// Side-view movement: walk, run, jump and ground detection.
     /// </summary>
     [RequireComponent(typeof(Rigidbody2D))]
     public class PlayerController : MonoBehaviour
@@ -18,15 +17,34 @@ namespace AfterLife.Player
         [SerializeField, Min(0f)]
         private float runSpeed = 8f;
 
+        [Header("Jump")]
+        [Tooltip("Upward speed applied when jumping.")]
+        [SerializeField, Min(0f)]
+        private float jumpVelocity = 13f;
+
+        [Header("Ground Check")]
+        [SerializeField]
+        private Transform groundCheck;
+        [SerializeField]
+        private Vector2 groundCheckSize = new Vector2(0.45f, 0.1f);
+        [SerializeField]
+        private LayerMask groundLayers;
+
         private Rigidbody2D body;
         private InputAction moveAction;
         private InputAction runAction;
+        private InputAction jumpAction;
 
         private float moveInput;
         private bool isFacingRight = true;
+        private const float GroundedMaxRiseSpeed = 0.01f;
+
+        /// <summary>True while the player stands on a ground layer.</summary>
+        public bool IsGrounded { get; private set; }
 
         /// <summary>Caches the Rigidbody2D and builds the input actions with their bindings.</summary>
-        private void Awake() {
+        private void Awake()
+        {
             body = GetComponent<Rigidbody2D>();
 
             moveAction = new InputAction("Move", InputActionType.Value);
@@ -36,6 +54,10 @@ namespace AfterLife.Player
             runAction = new InputAction("Run", InputActionType.Button);
             runAction.AddBinding("<Keyboard>/leftShift");
             runAction.AddBinding("<Gamepad>/leftTrigger");
+
+            jumpAction = new InputAction("Jump", InputActionType.Button);
+            jumpAction.AddBinding("<Keyboard>/space");
+            jumpAction.AddBinding("<Gamepad>/buttonSouth");
         }
 
         /// <summary>Enables the input actions.</summary>
@@ -43,6 +65,7 @@ namespace AfterLife.Player
         {
             moveAction.Enable();
             runAction.Enable();
+            jumpAction.Enable();
         }
 
         /// <summary>Disables the input actions.</summary>
@@ -50,6 +73,7 @@ namespace AfterLife.Player
         {
             moveAction.Disable();
             runAction.Disable();
+            jumpAction.Disable();
         }
 
         /// <summary>Releases the native resources held by the actions.</summary>
@@ -57,6 +81,7 @@ namespace AfterLife.Player
         {
             moveAction.Dispose();
             runAction.Dispose();
+            jumpAction.Dispose();
         }
 
         /// <summary>Reads input every frame and updates the facing direction.</summary>
@@ -64,6 +89,8 @@ namespace AfterLife.Player
         {
             moveInput = moveAction.ReadValue<float>();
             UpdateFacing();
+            UpdateGroundedState();
+            TryJump();
         }
 
         /// <summary>Applies horizontal velocity in the physics step.</summary>
@@ -71,6 +98,24 @@ namespace AfterLife.Player
         {
             float speed = runAction.IsPressed() ? runSpeed : walkSpeed;
             body.linearVelocity = new Vector2(moveInput * speed, body.linearVelocity.y);
+        }
+
+        /// <summary>Checks for ground below the player, ignoring frames where it is still rising.</summary>
+        private void UpdateGroundedState()
+        {
+            bool touchingGround = Physics2D.OverlapBox(groundCheck.position, groundCheckSize, 0f, groundLayers);
+            IsGrounded = touchingGround && body.linearVelocity.y <= GroundedMaxRiseSpeed;
+        }
+
+        /// <summary>Jumps when the button was pressed this frame and the player is grounded.</summary>
+        private void TryJump()
+        {
+            if (!jumpAction.WasPressedThisFrame() || !IsGrounded)
+            {
+                return;
+            }
+
+            body.linearVelocity = new Vector2(body.linearVelocity.x, jumpVelocity);
         }
 
         /// <summary>Flips the sprite to face the movement direction.</summary>
@@ -85,6 +130,18 @@ namespace AfterLife.Player
             Vector3 scale = transform.localScale;
             scale.x = -scale.x;
             transform.localScale = scale;
+        }
+
+        /// <summary>Draws the ground check box in the Scene view when the player is selected.</summary>
+        private void OnDrawGizmosSelected()
+        {
+            if (groundCheck == null)
+            {
+                return;
+            }
+
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireCube(groundCheck.position, groundCheckSize);
         }
     }
 }

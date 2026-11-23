@@ -1,0 +1,310 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "id": "assets_scripts_player_playercontroller_afterlife_player_playercontroller",
+      "label": "PlayerController",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "PlayerController.cs",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "AfterLife.Player",
+        "scope_chain": [
+          "s54"
+        ]
+      },
+      "norm_label": "playercontroller",
+      "source_file": "Assets/Scripts/Player/PlayerController.cs",
+      "source_location": "L10"
+    },
+    {
+      "id": "claude",
+      "label": "CLAUDE.md",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "The Other Side (Unity project \"After LIfe\")",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "claude.md",
+      "source_file": "CLAUDE.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "claude_code_style_aaa_not_junior",
+      "label": "Code style (AAA, not junior)",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "The Other Side (Unity project \"After LIfe\")",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "code style (aaa, not junior)",
+      "source_file": "CLAUDE.md",
+      "source_location": "L17"
+    },
+    {
+      "id": "claude_game_design_agreed",
+      "label": "Game design (agreed)",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "The Other Side (Unity project \"After LIfe\")",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "game design (agreed)",
+      "source_file": "CLAUDE.md",
+      "source_location": "L27"
+    },
+    {
+      "id": "claude_graphify",
+      "label": "graphify",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "The Other Side (Unity project \"After LIfe\")",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "graphify",
+      "source_file": "CLAUDE.md",
+      "source_location": "L53"
+    },
+    {
+      "id": "claude_how_we_work_rules",
+      "label": "How we work (rules)",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "The Other Side (Unity project \"After LIfe\")",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "how we work (rules)",
+      "source_file": "CLAUDE.md",
+      "source_location": "L6"
+    },
+    {
+      "id": "claude_stages",
+      "label": "Stages",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "The Other Side (Unity project \"After LIfe\")",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "stages",
+      "source_file": "CLAUDE.md",
+      "source_location": "L40"
+    },
+    {
+      "id": "claude_the_other_side_unity_project_after_life",
+      "label": "The Other Side (Unity project \"After LIfe\")",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "The Other Side (Unity project \"After LIfe\")",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "the other side (unity project \"after life\")",
+      "source_file": "CLAUDE.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "assets_scripts_player_playercontroller",
+      "label": "PlayerController.cs",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "PlayerController.cs",
+      "file_type": "code",
+      "norm_label": "playercontroller.cs",
+      "source_file": "Assets/Scripts/Player/PlayerController.cs",
+      "source_location": "L1"
+    },
+    {
+      "id": "csharp_namespace:27abfaa362c8129e",
+      "label": "AfterLife.Player",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "PlayerController.cs",
+      "file_type": "code",
+      "metadata": {
+        "kind": "csharp_namespace",
+        "namespace": "AfterLife.Player"
+      },
+      "norm_label": "afterlife.player",
+      "source_file": "Assets/Scripts/Player/PlayerController.cs",
+      "source_location": "L4",
+      "type": "namespace"
+    },
+    {
+      "id": "monobehaviour",
+      "label": "MonoBehaviour",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "PlayerController.cs",
+      "file_type": "code",
+      "norm_label": "monobehaviour",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "unityengine",
+      "label": "unityengine",
+      "community": 1,
+      "community_name": "PlayerController.cs",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "unityengine",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "unityengine_inputsystem",
+      "label": "unityengine_inputsystem",
+      "community": 1,
+      "community_name": "PlayerController.cs",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "unityengine_inputsystem",
+      "source_file": "",
+      "type": "external"
+    }
+  ],
+  "links": [
+    {
+      "source": "assets_scripts_player_playercontroller",
+      "target": "unityengine",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "UnityEngine",
+        "scope_kind": "file"
+      },
+      "source_file": "Assets/Scripts/Player/PlayerController.cs",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "assets_scripts_player_playercontroller",
+      "target": "unityengine_inputsystem",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "UnityEngine.InputSystem",
+        "scope_kind": "file"
+      },
+      "source_file": "Assets/Scripts/Player/PlayerController.cs",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "assets_scripts_player_playercontroller_afterlife_player_playercontroller",
+      "target": "monobehaviour",
+      "relation": "inherits",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "metadata": {
+        "ref_token": "MonoBehaviour"
+      },
+      "source_file": "Assets/Scripts/Player/PlayerController.cs",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "assets_scripts_player_playercontroller",
+      "target": "assets_scripts_player_playercontroller_afterlife_player_playercontroller",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Assets/Scripts/Player/PlayerController.cs",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "assets_scripts_player_playercontroller",
+      "target": "csharp_namespace:27abfaa362c8129e",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Assets/Scripts/Player/PlayerController.cs",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "claude",
+      "target": "claude_the_other_side_unity_project_after_life",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_the_other_side_unity_project_after_life",
+      "target": "claude_code_style_aaa_not_junior",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_the_other_side_unity_project_after_life",
+      "target": "claude_game_design_agreed",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_the_other_side_unity_project_after_life",
+      "target": "claude_stages",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_the_other_side_unity_project_after_life",
+      "target": "claude_graphify",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": "L53",
+      "weight": 1.0
+    },
+    {
+      "source": "claude_the_other_side_unity_project_after_life",
+      "target": "claude_how_we_work_rules",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": "L6",
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [],
+  "built_at_commit": "57d47bc4a0bdfb065fd19f9f88567f355895325a"
+}
