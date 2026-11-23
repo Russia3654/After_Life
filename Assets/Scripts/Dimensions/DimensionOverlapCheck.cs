@@ -17,6 +17,8 @@ namespace AfterLife.Dimensions
         private Collider2D playerCollider;
         private readonly Collider2D[] overlapResults = new Collider2D[8];
 
+        private bool checkPending;
+
         /// <summary>Caches the player's collider.</summary>
         private void Awake()
         {
@@ -35,16 +37,27 @@ namespace AfterLife.Dimensions
             DimensionManager.DimensionChanged -= OnDimensionChanged;
         }
 
-        /// <summary>Checks for overlap right after the world has switched.</summary>
+        /// <summary>Requests an overlap check for the next physics step, after the worlds have toggled.</summary>
         /// <param name="active">The dimension that is now active.</param>
         private void OnDimensionChanged(Dimension active)
         {
-            if (!IsOverlappingSolid())
+            checkPending = true;
+        }
+
+        /// <summary>Runs the pending overlap check once the physics world is up to date.</summary>
+        private void FixedUpdate()
+        {
+            if (!checkPending)
             {
                 return;
             }
 
-            ApplyOverlapDamage();
+            checkPending = false;
+
+            if (IsOverlappingSolid())
+            {
+                ApplyOverlapDamage();
+            }
         }
 
         /// <summary>True when the player's collider overlaps an enabled collider on a solid layer.</summary>

@@ -15,7 +15,12 @@ namespace AfterLife.Dimensions
         [SerializeField]
         private Dimension startingDimension = Dimension.Light;
 
+        [Tooltip("Seconds before the player can switch again.")]
+        [SerializeField, Min(0f)]
+        private float switchCooldown = 0.5f;
+
         private InputAction switchAction;
+        private float nextSwitchTime;
 
         /// <summary>Raised whenever the active dimension is set, including once at startup.</summary>
         public static event Action<Dimension> DimensionChanged;
@@ -73,9 +78,15 @@ namespace AfterLife.Dimensions
             DimensionChanged?.Invoke(Current);
         }
 
-        /// <summary>Called by the input system when the switch button is pressed.</summary>
+        /// <summary>Called by the input system when the switch button is pressed. Ignored during the cooldown.</summary>
         private void OnSwitchPerformed(InputAction.CallbackContext context)
         {
+            if (Time.time < nextSwitchTime)
+            {
+                return;
+            }
+
+            nextSwitchTime = Time.time + switchCooldown;
             Switch();
         }
     }
