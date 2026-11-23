@@ -70,7 +70,6 @@ namespace AfterLife.Dimensions
         public void SetDimension(Dimension dimension)
         {
             Current = dimension;
-            Debug.Log($"Dimension: {Current}"); // Temporary, for testing. Remove in step 2.2.
             DimensionChanged?.Invoke(Current);
         }
 
