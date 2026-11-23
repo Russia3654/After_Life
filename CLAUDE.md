@@ -17,6 +17,7 @@ Deadline 2026-12-11; target finish about 2026-11-30.
 ## Code style (AAA, not junior)
 
 - C#, one class per file, under `Assets/Scripts/{Player,Dimensions,Interactables,Enemies,Data,Systems,UI}`.
+- Namespace: AfterLife.<Folder> (for example AfterLife.Player). Allman braces on every method.
 - XML doc comments (`/// <summary>`) on every class, method and public member.
 - `[SerializeField] private` fields, no public fields; `[Header]`/`[Tooltip]` on inspector fields.
 - No magic numbers (serialized fields or constants). Clear naming, small methods, early returns.
