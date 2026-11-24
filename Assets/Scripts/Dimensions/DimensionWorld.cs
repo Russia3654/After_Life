@@ -40,6 +40,11 @@ namespace AfterLife.Dimensions
             {
                 childCollider.enabled = isActive;
             }
+
+            foreach (Rigidbody2D childBody in GetComponentsInChildren<Rigidbody2D>(true))
+            {
+                childBody.simulated = isActive;
+            }
         }
     }
 }
