@@ -16,6 +16,9 @@ namespace AfterLife.Interactables
         [Tooltip("The channel that opens this door when raised.")]
         [SerializeField]
         private GameEventChannel openChannel;
+        [Tooltip("Optional channel that closes this door again when raised (for pressure plates).")]
+        [SerializeField]
+        private GameEventChannel closeChannel;
 
         private Collider2D doorCollider;
         private SpriteRenderer doorRenderer;
@@ -33,21 +36,32 @@ namespace AfterLife.Interactables
             doorRenderer = GetComponent<SpriteRenderer>();
         }
 
-        /// <summary>Starts listening to the open channel.</summary>
+        /// <summary>Starts listening to the open and close channels.</summary>
         private void OnEnable()
         {
             if (openChannel != null)
             {
                 openChannel.Raised += Open;
             }
+
+            if (closeChannel != null)
+            {
+                closeChannel.Raised += Close;
+            }
         }
 
-        /// <summary>Stops listening to the open channel.</summary>
+
+        /// <summary>Stops listening to the open and close channels.</summary>
         private void OnDisable()
         {
             if (openChannel != null)
             {
                 openChannel.Raised -= Open;
+            }
+
+            if (closeChannel != null)
+            {
+                closeChannel.Raised -= Close;
             }
         }
 
@@ -57,6 +71,14 @@ namespace AfterLife.Interactables
             IsOpen = true;
             doorCollider.enabled = false;
             doorRenderer.enabled = false;
+        }
+
+        /// <summary>Closes the door: shows it and blocks the player again.</summary>
+        public void Close()
+        {
+            IsOpen = false;
+            doorCollider.enabled = true;
+            doorRenderer.enabled = true;
         }
     }
 }
