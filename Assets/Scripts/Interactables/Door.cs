@@ -1,5 +1,6 @@
 using UnityEngine;
 using AfterLife.Data;
+using AfterLife.Dimensions;
 
 namespace AfterLife.Interactables
 {
@@ -22,6 +23,7 @@ namespace AfterLife.Interactables
 
         private Collider2D doorCollider;
         private SpriteRenderer doorRenderer;
+        private DimensionWorld world;
 
         /// <summary>The stable ID of this door.</summary>
         public string UniqueId => uniqueId;
@@ -34,6 +36,7 @@ namespace AfterLife.Interactables
         {
             doorCollider = GetComponent<Collider2D>();
             doorRenderer = GetComponent<SpriteRenderer>();
+            world = GetComponentInParent<DimensionWorld>();
         }
 
         /// <summary>Starts listening to the open and close channels.</summary>
@@ -47,6 +50,11 @@ namespace AfterLife.Interactables
             if (closeChannel != null)
             {
                 closeChannel.Raised += Close;
+            }
+
+            if (world != null)
+            {
+                world.Applied += Refresh;
             }
         }
 
@@ -63,22 +71,33 @@ namespace AfterLife.Interactables
             {
                 closeChannel.Raised -= Close;
             }
+
+            if (world != null)
+            {
+                world.Applied -= Refresh;
+            }
         }
 
         /// <summary>Opens the door: hides it and removes its collision.</summary>
         public void Open()
         {
             IsOpen = true;
-            doorCollider.enabled = false;
-            doorRenderer.enabled = false;
+            Refresh();
         }
 
-        /// <summary>Closes the door: shows it and blocks the player again.</summary>
+        /// <summary>Closes the door: it blocks the player again in its own dimension.</summary>
         public void Close()
         {
             IsOpen = false;
-            doorCollider.enabled = true;
-            doorRenderer.enabled = true;
+            Refresh();
+        }
+
+        /// <summary>Shows and blocks only while the door is closed and its world is visible.</summary>
+        private void Refresh()
+        {
+            bool isSolid = !IsOpen && (world == null || world.IsVisible);
+            doorCollider.enabled = isSolid;
+            doorRenderer.enabled = isSolid;
         }
     }
 }

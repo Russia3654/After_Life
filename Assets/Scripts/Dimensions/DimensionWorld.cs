@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace AfterLife.Dimensions
@@ -12,6 +13,12 @@ namespace AfterLife.Dimensions
         [Tooltip("The dimension in which this world is visible and solid.")]
         [SerializeField]
         private Dimension dimension;
+
+        /// <summary>Raised after this world has shown or hidden its objects.</summary>
+        public event Action Applied;
+
+        /// <summary>True while this world's dimension is active.</summary>
+        public bool IsVisible { get; private set; } = true;
 
         /// <summary>Starts listening for dimension changes.</summary>
         private void OnEnable()
@@ -30,6 +37,7 @@ namespace AfterLife.Dimensions
         private void OnDimensionChanged(Dimension active)
         {
             bool isActive = active == dimension;
+            IsVisible = isActive;
 
             foreach (Renderer childRenderer in GetComponentsInChildren<Renderer>(true))
             {
@@ -45,6 +53,7 @@ namespace AfterLife.Dimensions
             {
                 childBody.simulated = isActive;
             }
+            Applied?.Invoke();
         }
     }
 }
