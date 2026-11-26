@@ -46,5 +46,13 @@ namespace AfterLife.Systems
         {
             return keyIds.Remove(keyId);
         }
+
+        /// <summary>Replaces the held keys with saved ones.</summary>
+        /// <param name="savedIds">Key IDs from the save file.</param>
+        public void Restore(IEnumerable<string> savedIds)
+        {
+            keyIds.Clear();
+            keyIds.UnionWith(savedIds);
+        }
     }
 }

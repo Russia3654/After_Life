@@ -80,9 +80,7 @@ namespace AfterLife.Player
 
             yield return new WaitForSeconds(respawnDelay);
 
-            transform.position = respawnPosition;
-            body.linearVelocity = Vector2.zero;
-            dimensionManager.SetDimension(respawnDimension);
+            MoveToRespawnPoint();
 
             foreach (PushableBlock block in blocksToReset)
             {
@@ -92,6 +90,25 @@ namespace AfterLife.Player
             body.simulated = true;
             controller.enabled = true;
             health.Restore();
+        }
+
+        /// <summary>Sets the respawn spot from a save and moves the player there.</summary>
+        /// <param name="position">Where to put the player.</param>
+        /// <param name="dimension">The dimension to enter.</param>
+        public void RestoreTo(Vector3 position, Dimension dimension)
+        {
+            respawnPosition = position;
+            respawnDimension = dimension;
+            MoveToRespawnPoint();
+        }
+
+        /// <summary>Moves the player to the respawn spot in the respawn dimension.</summary>
+        private void MoveToRespawnPoint()
+        {
+            body.linearVelocity = Vector2.zero;
+            body.position = respawnPosition;
+            transform.position = respawnPosition;
+            dimensionManager.SetDimension(respawnDimension);
         }
     }
 }

@@ -2,6 +2,7 @@ using UnityEngine;
 using AfterLife.Data;
 using AfterLife.Dimensions;
 using AfterLife.Interactables;
+using AfterLife.Player;
 
 namespace AfterLife.Systems
 {
@@ -19,6 +20,12 @@ namespace AfterLife.Systems
         [SerializeField]
         private KeyInventory inventory;
 
+        [Tooltip("The player's respawn component.")]
+        [SerializeField]
+        private PlayerRespawn playerRespawn;
+
+        private bool isRestoring;
+
         /// <summary>Listens for reached checkpoints.</summary>
         private void OnEnable()
         {
@@ -31,10 +38,24 @@ namespace AfterLife.Systems
             Checkpoint.Reached -= OnCheckpointReached;
         }
 
-        /// <summary>Writes the save file.</summary>
+        /// <summary>Restores the save if it belongs to this level.</summary>
+        private void Start()
+        {
+            if (SaveSystem.TryLoad(out SaveData data) && data.LevelId == level.LevelId)
+            {
+                Restore(data);
+            }
+        }
+
+        /// <summary>Writes the save file, except while a save is being restored.</summary>
         /// <param name="checkpoint">The checkpoint just reached.</param>
         private void OnCheckpointReached(Checkpoint checkpoint)
         {
+            if (isRestoring)
+            {
+                return;
+            }
+
             SaveSystem.Save(Capture(checkpoint));
         }
 
@@ -105,6 +126,92 @@ namespace AfterLife.Systems
             foreach (PushableBlock block in FindAll<PushableBlock>())
             {
                 data.Blocks.Add(new BlockState(block.UniqueId, block.transform.position));
+            }
+        }
+
+        /// <summary>Puts the level back into its saved state.</summary>
+        /// <param name="data">The loaded save.</param>
+        private void Restore(SaveData data)
+        {
+            isRestoring = true;
+
+            RestoreCollected(data);
+            RestoreActivated(data);
+            RestoreBlocks(data);
+            inventory.Restore(data.HeldKeyIds);
+            RestorePlayer(data);
+
+            isRestoring = false;
+        }
+
+        /// <summary>Hides the items already collected.</summary>
+        /// <param name="data">The loaded save.</param>
+        private void RestoreCollected(SaveData data)
+        {
+            foreach (Collectible item in FindAll<Collectible>())
+            {
+                if (data.CollectedIds.Contains(item.UniqueId))
+                {
+                    item.gameObject.SetActive(false);
+                }
+            }
+        }
+
+        /// <summary>Re-applies switches, locks and checkpoints.</summary>
+        /// <param name="data">The loaded save.</param>
+        private void RestoreActivated(SaveData data)
+        {
+            foreach (Switch lever in FindAll<Switch>())
+            {
+                if (data.ActivatedIds.Contains(lever.UniqueId))
+                {
+                    lever.TurnOn();
+                }
+            }
+
+            foreach (KeyLock keyLock in FindAll<KeyLock>())
+            {
+                if (data.ActivatedIds.Contains(keyLock.UniqueId))
+                {
+                    keyLock.Unlock();
+                }
+            }
+
+            foreach (Checkpoint flag in FindAll<Checkpoint>())
+            {
+                if (data.ActivatedIds.Contains(flag.UniqueId))
+                {
+                    flag.Activate();
+                }
+            }
+        }
+
+        /// <summary>Moves crates to their saved positions.</summary>
+        /// <param name="data">The loaded save.</param>
+        private void RestoreBlocks(SaveData data)
+        {
+            foreach (PushableBlock block in FindAll<PushableBlock>())
+            {
+                BlockState state = data.Blocks.Find(saved => saved.Id == block.UniqueId);
+
+                if (state != null)
+                {
+                    block.MoveTo(state.Position);
+                }
+            }
+        }
+
+        /// <summary>Puts the player at the saved checkpoint.</summary>
+        /// <param name="data">The loaded save.</param>
+        private void RestorePlayer(SaveData data)
+        {
+            foreach (Checkpoint flag in FindAll<Checkpoint>())
+            {
+                if (flag.UniqueId == data.CheckpointId)
+                {
+                    playerRespawn.RestoreTo(flag.RespawnPosition, data.Dimension);
+                    return;
+                }
             }
         }
 

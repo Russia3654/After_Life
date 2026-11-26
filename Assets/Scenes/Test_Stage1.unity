@@ -3259,6 +3259,7 @@ MonoBehaviour:
   level: {fileID: 11400000, guid: 829a5ff8bd8fb7a4e8f40ec8939e9f83, type: 2}
   dimensionManager: {fileID: 652393839}
   inventory: {fileID: 1086906680}
+  playerRespawn: {fileID: 1872226642}
 --- !u!4 &1417260182
 Transform:
   m_ObjectHideFlags: 0

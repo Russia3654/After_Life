@@ -34,11 +34,19 @@ namespace AfterLife.Interactables
             startPosition = transform.position;
         }
 
-        /// <summary>Puts the block back where it started and stops it moving.</summary>
+        /// <summary>Puts the block back where it started.</summary>
         public void ResetToStart()
         {
+            MoveTo(startPosition);
+        }
+
+        /// <summary>Moves the block and stops it.</summary>
+        /// <param name="position">The new position.</param>
+        public void MoveTo(Vector3 position)
+        {
             body.linearVelocity = Vector2.zero;
-            transform.position = startPosition;
+            body.position = position;
+            transform.position = position;
         }
     }
 }
