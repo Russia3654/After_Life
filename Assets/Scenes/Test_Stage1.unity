@@ -753,7 +753,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.625, y: 1, z: -10}
+  m_LocalPosition: {x: -5.6116147, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3673,6 +3673,7 @@ GameObject:
   - component: {fileID: 1872226638}
   - component: {fileID: 1872226639}
   - component: {fileID: 1872226640}
+  - component: {fileID: 1872226641}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -3884,6 +3885,20 @@ MonoBehaviour:
   interactableLayers:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &1872226641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872226633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92c179152f77c174da2f79f27d81d6c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AfterLife.Systems.Health
+  maxHealth: 3
+  invulnerabilityTime: 1
 --- !u!1 &1996394790
 GameObject:
   m_ObjectHideFlags: 0
