@@ -19,6 +19,14 @@ namespace AfterLife.Data
         [SerializeField, Min(0f)]
         private float patrolDistance = 3f;
 
+        [Header("Chasing")]
+        [Tooltip("Distance at which a chaser notices the player.")]
+        [SerializeField, Min(0f)]
+        private float detectionRange = 6f;
+        [Tooltip("Upward speed of a chaser's jump.")]
+        [SerializeField, Min(0f)]
+        private float jumpVelocity = 10f;
+
         /// <summary>Hit points the player loses on touch.</summary>
         public int ContactDamage => contactDamage;
 
@@ -27,5 +35,11 @@ namespace AfterLife.Data
 
         /// <summary>Distance travelled to each side of the start position.</summary>
         public float PatrolDistance => patrolDistance;
+
+        /// <summary>Distance at which a chaser notices the player.</summary>
+        public float DetectionRange => detectionRange;
+
+        /// <summary>Upward speed of a chaser's jump.</summary>
+        public float JumpVelocity => jumpVelocity;
     }
 }
