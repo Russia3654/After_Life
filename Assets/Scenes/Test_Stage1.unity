@@ -3249,6 +3249,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AfterLife.Enemies.PatrolEnemy
   data: {fileID: 11400000, guid: ade33ec0224503b46b63fd34b7997909, type: 2}
+  blockingLayers:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!50 &1542678612
 Rigidbody2D:
   serializedVersion: 5
