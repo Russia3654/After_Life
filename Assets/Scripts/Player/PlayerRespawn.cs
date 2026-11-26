@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using AfterLife.Dimensions;
@@ -28,6 +29,9 @@ namespace AfterLife.Player
         private PlayerController controller;
         private Vector3 respawnPosition;
         private Dimension respawnDimension;
+
+        /// <summary>Raised after the player has respawned.</summary>
+        public static event Action Respawned;
 
         /// <summary>Caches components and uses the start position as the first respawn spot.</summary>
         private void Awake()
@@ -90,6 +94,7 @@ namespace AfterLife.Player
             body.simulated = true;
             controller.enabled = true;
             health.Restore();
+            Respawned?.Invoke();
         }
 
         /// <summary>Sets the respawn spot from a save and moves the player there.</summary>

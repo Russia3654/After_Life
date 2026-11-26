@@ -52,5 +52,12 @@ namespace AfterLife.Enemies
             scale.x = -scale.x;
             transform.localScale = scale;
         }
+
+        /// <summary>Also restores the starting patrol direction.</summary>
+        public override void ResetToStart()
+        {
+            base.ResetToStart();
+            direction = 1f;
+        }
     }
 }

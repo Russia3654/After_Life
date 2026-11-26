@@ -1,6 +1,7 @@
 using UnityEngine;
 using AfterLife.Data;
 using AfterLife.Systems;
+using AfterLife.Player;
 
 namespace AfterLife.Enemies
 {
@@ -12,6 +13,9 @@ namespace AfterLife.Enemies
         [Tooltip("Stats for this enemy.")]
         [SerializeField]
         private EnemyData data;
+
+        private Vector3 startPosition;
+        private Vector3 startScale;
 
         /// <summary>Stats for this enemy.</summary>
         protected EnemyData Data => data;
@@ -26,10 +30,33 @@ namespace AfterLife.Enemies
             GetComponent<Collider2D>().isTrigger = true;
         }
 
-        /// <summary>Caches the rigidbody.</summary>
+        /// <summary>Caches the rigidbody and remembers the starting pose.</summary>
         protected virtual void Awake()
         {
             Body = GetComponent<Rigidbody2D>();
+            startPosition = transform.position;
+            startScale = transform.localScale;
+        }
+
+        /// <summary>Listens for the player respawning.</summary>
+        private void OnEnable()
+        {
+            PlayerRespawn.Respawned += ResetToStart;
+        }
+
+        /// <summary>Stops listening.</summary>
+        private void OnDisable()
+        {
+            PlayerRespawn.Respawned -= ResetToStart;
+        }
+
+        /// <summary>Puts the enemy back where it started.</summary>
+        public virtual void ResetToStart()
+        {
+            Body.linearVelocity = Vector2.zero;
+            Body.position = startPosition;
+            transform.position = startPosition;
+            transform.localScale = startScale;
         }
 
         /// <summary>Moves the enemy every physics step.</summary>

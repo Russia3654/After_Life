@@ -168,5 +168,14 @@ namespace AfterLife.Enemies
         {
             return bounds.center.x + direction * (bounds.extents.x + ProbeThickness);
         }
+
+        /// <summary>Also restarts the search.</summary>
+        public override void ResetToStart()
+        {
+            base.ResetToStart();
+            direction = 1f;
+            stuckTimer = 0f;
+            lastX = transform.position.x;
+        }
     }
 }
