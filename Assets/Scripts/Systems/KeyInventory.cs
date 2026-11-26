@@ -12,6 +12,9 @@ namespace AfterLife.Systems
     {
         private readonly HashSet<string> keyIds = new HashSet<string>();
 
+        /// <summary>IDs of the keys currently held.</summary>
+        public IEnumerable<string> HeldKeyIds => keyIds;
+
         /// <summary>Starts listening for collected items.</summary>
         private void OnEnable()
         {
