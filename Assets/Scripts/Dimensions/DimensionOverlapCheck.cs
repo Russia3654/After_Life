@@ -1,4 +1,5 @@
 using UnityEngine;
+using AfterLife.Systems;
 
 namespace AfterLife.Dimensions
 {
@@ -6,7 +7,7 @@ namespace AfterLife.Dimensions
     /// Detects when a dimension switch leaves the player inside a solid of the new world.
     /// Damage is a placeholder until the health system exists (Stage 4).
     /// </summary>
-    [RequireComponent(typeof(Collider2D))]
+    [RequireComponent(typeof(Collider2D), typeof(Health))]
     public class DimensionOverlapCheck : MonoBehaviour
     {
         [Header("Setup")]
@@ -14,7 +15,12 @@ namespace AfterLife.Dimensions
         [SerializeField]
         private LayerMask solidLayers;
 
+        [Tooltip("Hit points lost when switching into a solid.")]
+        [SerializeField, Min(1)]
+        private int overlapDamage = 1;
+
         private Collider2D playerCollider;
+        private Health health;
         private readonly Collider2D[] overlapResults = new Collider2D[8];
 
         private bool checkPending;
@@ -23,6 +29,7 @@ namespace AfterLife.Dimensions
         private void Awake()
         {
             playerCollider = GetComponent<Collider2D>();
+            health = GetComponent<Health>();
         }
 
         /// <summary>Starts listening for dimension changes.</summary>
@@ -70,10 +77,10 @@ namespace AfterLife.Dimensions
             return playerCollider.Overlap(filter, overlapResults) > 0;
         }
 
-        /// <summary>Placeholder damage. Replaced by the health system in Stage 4.</summary>
+        /// <summary>Costs health for switching into a solid.</summary>
         private void ApplyOverlapDamage()
         {
-            Debug.Log("Overlap damage: switched into a solid.");
+            health.TakeDamage(overlapDamage);
         }
     }
 }
