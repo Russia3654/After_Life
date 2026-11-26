@@ -19,6 +19,10 @@ namespace AfterLife.Dimensions
         [SerializeField, Min(1)]
         private int overlapDamage = 1;
 
+        [Tooltip("How much smaller than the player the check box is, so merely touching a surface is ignored.")]
+        [SerializeField, Min(0f)]
+        private float contactTolerance = 0.15f;
+
         private Collider2D playerCollider;
         private Health health;
         private readonly Collider2D[] overlapResults = new Collider2D[8];
@@ -67,14 +71,17 @@ namespace AfterLife.Dimensions
             }
         }
 
-        /// <summary>True when the player's collider overlaps an enabled collider on a solid layer.</summary>
+        /// <summary>True when a solid reaches inside the player's body, not merely touching its edge.</summary>
         private bool IsOverlappingSolid()
         {
             ContactFilter2D filter = new ContactFilter2D();
             filter.SetLayerMask(solidLayers);
             filter.useTriggers = false;
 
-            return playerCollider.Overlap(filter, overlapResults) > 0;
+            Bounds bounds = playerCollider.bounds;
+            Vector2 checkSize = (Vector2)bounds.size - Vector2.one * contactTolerance;
+
+            return Physics2D.OverlapBox(bounds.center, checkSize, 0f, filter, overlapResults) > 0;
         }
 
         /// <summary>Costs health for switching into a solid.</summary>
