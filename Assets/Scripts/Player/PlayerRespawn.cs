@@ -10,6 +10,7 @@ namespace AfterLife.Player
     /// <summary>
     /// Returns the player to the last checkpoint (or the start) after death, in the dimension it was reached in.
     /// </summary>
+    [RequireComponent(typeof(PlayerInteractor))]
     [RequireComponent(typeof(Health), typeof(Rigidbody2D), typeof(PlayerController))]
     public class PlayerRespawn : MonoBehaviour
     {
@@ -26,6 +27,7 @@ namespace AfterLife.Player
 
         private Health health;
         private Rigidbody2D body;
+        private PlayerInteractor interactor;
         private PlayerController controller;
         private Vector3 respawnPosition;
         private Dimension respawnDimension;
@@ -38,6 +40,7 @@ namespace AfterLife.Player
         {
             health = GetComponent<Health>();
             body = GetComponent<Rigidbody2D>();
+            interactor = GetComponent<PlayerInteractor>();
             controller = GetComponent<PlayerController>();
             respawnPosition = transform.position;
         }
@@ -80,6 +83,7 @@ namespace AfterLife.Player
         private IEnumerator Respawn()
         {
             controller.enabled = false;
+            interactor.enabled = false;
             body.simulated = false;
 
             yield return new WaitForSeconds(respawnDelay);
@@ -93,6 +97,7 @@ namespace AfterLife.Player
 
             body.simulated = true;
             controller.enabled = true;
+            interactor.enabled = true;
             health.Restore();
             Respawned?.Invoke();
         }
