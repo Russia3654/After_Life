@@ -1,29 +1,30 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using AfterLife.Data;
 using AfterLife.Interactables;
-using System.Collections;
 using AfterLife.UI;
 
 namespace AfterLife.Systems
 {
-    /// <summary>Starts, continues and advances the game by loading level scenes.</summary>
+    /// <summary>Starts, continues and advances the game by loading scenes.</summary>
     public class GameManager : MonoBehaviour
     {
         [Header("Setup")]
-        [Tooltip("The level order.")]
+        [Tooltip("The level order and menu names.")]
         [SerializeField]
         private GameSettings settings;
 
-        [Tooltip("The level in this scene.")]
+        [Tooltip("The level in this scene. Empty in the main menu.")]
         [SerializeField]
         private LevelData currentLevel;
 
-        [Tooltip("Black overlay used between levels.")]
+        [Tooltip("Black overlay used between scenes.")]
         [SerializeField]
         private ScreenFader fader;
 
-        [Tooltip("The player's health, carried to the next level.")]
+        [Header("Carried to the next level (levels only)")]
+        [Tooltip("The player's health.")]
         [SerializeField]
         private Health playerHealth;
 
@@ -31,7 +32,7 @@ namespace AfterLife.Systems
         [SerializeField, Min(0)]
         private int healthPerLevel = 1;
 
-        [Tooltip("The scene's orb counter, carried to the next level.")]
+        [Tooltip("The scene's orb counter.")]
         [SerializeField]
         private OrbCounter orbCounter;
 
@@ -43,10 +44,11 @@ namespace AfterLife.Systems
             LevelExit.PlayerReachedExit += OnExitReached;
         }
 
-        /// <summary>Reveals the level with its name.</summary>
+        /// <summary>Reveals the scene with its name.</summary>
         private void Start()
         {
-            StartCoroutine(fader.FadeIn(currentLevel.DisplayName));
+            string title = currentLevel != null ? currentLevel.DisplayName : settings.GameTitle;
+            StartCoroutine(fader.FadeIn(title));
         }
 
         /// <summary>Stops listening.</summary>
@@ -60,7 +62,7 @@ namespace AfterLife.Systems
         public void NewGame()
         {
             SaveSystem.Delete();
-            Load(settings.FirstLevel);
+            Load(settings.FirstLevel.SceneName);
         }
 
         /// <summary>Loads the saved level, or starts a new game when there is no usable save.</summary>
@@ -75,10 +77,26 @@ namespace AfterLife.Systems
                 return;
             }
 
-            Load(level);
+            Load(level.SceneName);
         }
 
-        /// <summary>Saves the next level as the one to continue from, then loads it.</summary>
+        /// <summary>Goes back to the main menu. Progress stays at the last save.</summary>
+        public void ReturnToMenu()
+        {
+            Load(settings.MenuSceneName);
+        }
+
+        /// <summary>Closes the game, or stops Play mode in the editor.</summary>
+        public void QuitGame()
+        {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
+        }
+
+        /// <summary>Saves the next level and loads it, or ends the game after the last one.</summary>
         private void OnExitReached()
         {
             if (isLoading)
@@ -90,7 +108,8 @@ namespace AfterLife.Systems
 
             if (next == null)
             {
-                NewGame(); // ponytail: restarts after the last level; goes to the main menu in step 6.4.
+                SaveSystem.Delete();
+                ReturnToMenu();
                 return;
             }
 
@@ -100,19 +119,24 @@ namespace AfterLife.Systems
                 HitPoints = playerHealth.Current + healthPerLevel,
                 CarriedOrbs = orbCounter.Count
             });
-            Load(next);
+            Load(next.SceneName);
         }
 
-        /// <summary>Leaves the current level for another one.</summary>
-        /// <param name="level">The level to load.</param>
-        private void Load(LevelData level)
+        /// <summary>Leaves the current scene, once.</summary>
+        /// <param name="sceneName">The scene to load.</param>
+        private void Load(string sceneName)
         {
+            if (isLoading)
+            {
+                return;
+            }
+
             isLoading = true;
-            StartCoroutine(FadeOutAndLoad(level.SceneName));
+            StartCoroutine(FadeOutAndLoad(sceneName));
         }
 
         /// <summary>Waits for the screen to turn black, then loads the scene.</summary>
-        /// <param name="sceneName">Scene to load.</param>
+        /// <param name="sceneName">The scene to load.</param>
         private IEnumerator FadeOutAndLoad(string sceneName)
         {
             yield return fader.FadeOut();

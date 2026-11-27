@@ -7,10 +7,25 @@ namespace AfterLife.Data
     [CreateAssetMenu(fileName = "GameSettings", menuName = "AfterLife/Game Settings")]
     public class GameSettings : ScriptableObject
     {
+        [Header("Menu")]
+        [Tooltip("Name shown while the main menu fades in.")]
+        [SerializeField]
+        private string gameTitle = "The Other Side";
+
+        [Tooltip("Exact name of the main menu scene.")]
+        [SerializeField]
+        private string menuSceneName = "MainMenu";
+
         [Header("Levels")]
         [Tooltip("All levels, in play order.")]
         [SerializeField]
         private List<LevelData> levels = new List<LevelData>();
+
+        /// <summary>The game's name.</summary>
+        public string GameTitle => gameTitle;
+
+        /// <summary>Exact name of the main menu scene.</summary>
+        public string MenuSceneName => menuSceneName;
 
         /// <summary>The level a new game starts in.</summary>
         public LevelData FirstLevel => levels[0];

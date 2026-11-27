@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using AfterLife.Dimensions;
 using AfterLife.Player;
+using AfterLife.Systems;
 
 namespace AfterLife.UI
 {
@@ -21,6 +22,14 @@ namespace AfterLife.UI
         [Tooltip("Closes the game.")]
         [SerializeField]
         private Button quitButton;
+
+        [Tooltip("Returns to the main menu.")]
+        [SerializeField]
+        private Button menuButton;
+
+        [Tooltip("The scene's game manager.")]
+        [SerializeField]
+        private GameManager gameManager;
 
         [Header("Input blocked while paused")]
         [Tooltip("The player's movement.")]
@@ -58,7 +67,8 @@ namespace AfterLife.UI
             pauseAction.performed += OnPausePerformed;
             pauseAction.Enable();
             resumeButton.onClick.AddListener(Resume);
-            quitButton.onClick.AddListener(Quit);
+            menuButton.onClick.AddListener(gameManager.ReturnToMenu);
+            quitButton.onClick.AddListener(gameManager.QuitGame);
         }
 
         /// <summary>Stops listening, and never leaves the game frozen.</summary>
@@ -67,7 +77,8 @@ namespace AfterLife.UI
             pauseAction.performed -= OnPausePerformed;
             pauseAction.Disable();
             resumeButton.onClick.RemoveListener(Resume);
-            quitButton.onClick.RemoveListener(Quit);
+            menuButton.onClick.RemoveListener(gameManager.ReturnToMenu);
+            quitButton.onClick.RemoveListener(gameManager.QuitGame);
 
             if (isPaused)
             {
@@ -132,16 +143,6 @@ namespace AfterLife.UI
             }
 
             Pause();
-        }
-
-        /// <summary>Closes the game, or stops Play mode in the editor.</summary>
-        private void Quit()
-        {
-#if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-#else
-            Application.Quit();
-#endif
         }
     }
 }
