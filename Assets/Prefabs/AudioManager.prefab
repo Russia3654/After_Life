@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AfterLife.Systems.AudioManager
   music: {fileID: 8300000, guid: a570f2b0fca2ccd4b82d357b6eb967f3, type: 3}
   musicVolume: 0.03
-  effectsVolume: 0.2
+  effectsVolume: 0.1
   orbClip: {fileID: 8300000, guid: 786ed65a1a64f2a4dbc72b8c37d26913, type: 3}
   keyClip: {fileID: 8300000, guid: 85cf08b57ec30ed4c9516a1648faf072, type: 3}
   heartClip: {fileID: 8300000, guid: 786ed65a1a64f2a4dbc72b8c37d26913, type: 3}

@@ -32,7 +32,6 @@ namespace AfterLife.Interactables
                 return;
             }
 
-            Debug.Log("Level exit reached"); // Temporary, for testing.
             PlayerReachedExit?.Invoke();
         }
     }

@@ -12,6 +12,10 @@ namespace AfterLife.UI
         [SerializeField]
         private GameManager gameManager;
 
+        [Tooltip("Story played before a new game.")]
+        [SerializeField]
+        private IntroCutscene intro;
+
         [Header("Buttons")]
         [Tooltip("Starts from the first level.")]
         [SerializeField]
@@ -28,7 +32,7 @@ namespace AfterLife.UI
         /// <summary>Listens for clicks.</summary>
         private void OnEnable()
         {
-            newGameButton.onClick.AddListener(gameManager.NewGame);
+            newGameButton.onClick.AddListener(intro.Play);
             continueButton.onClick.AddListener(gameManager.Continue);
             quitButton.onClick.AddListener(gameManager.QuitGame);
         }
@@ -44,7 +48,7 @@ namespace AfterLife.UI
         /// <summary>Stops listening.</summary>
         private void OnDisable()
         {
-            newGameButton.onClick.RemoveListener(gameManager.NewGame);
+            newGameButton.onClick.RemoveListener(intro.Play);
             continueButton.onClick.RemoveListener(gameManager.Continue);
             quitButton.onClick.RemoveListener(gameManager.QuitGame);
         }
