@@ -24,6 +24,10 @@ namespace AfterLife.Systems
         [SerializeField]
         private PlayerRespawn playerRespawn;
 
+        [Tooltip("The scene's orb counter.")]
+        [SerializeField]
+        private OrbCounter orbCounter;
+
         private bool isRestoring;
 
         /// <summary>Listens for reached checkpoints.</summary>
@@ -136,6 +140,7 @@ namespace AfterLife.Systems
             isRestoring = true;
 
             RestoreCollected(data);
+            orbCounter.Recount();
             RestoreActivated(data);
             RestoreBlocks(data);
             inventory.Restore(data.HeldKeyIds);

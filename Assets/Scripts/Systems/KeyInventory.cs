@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using AfterLife.Interactables;
@@ -14,6 +15,12 @@ namespace AfterLife.Systems
 
         /// <summary>IDs of the keys currently held.</summary>
         public IEnumerable<string> HeldKeyIds => keyIds;
+
+        /// <summary>Raised when a key is gained or used, or the inventory is restored.</summary>
+        public event Action Changed;
+
+        /// <summary>Number of keys held.</summary>
+        public int Count => keyIds.Count;
 
         /// <summary>Starts listening for collected items.</summary>
         private void OnEnable()
@@ -37,6 +44,7 @@ namespace AfterLife.Systems
             }
 
             keyIds.Add(item.UniqueId);
+            Changed?.Invoke();
         }
 
         /// <summary>Uses up a key if the player holds it.</summary>
@@ -44,7 +52,13 @@ namespace AfterLife.Systems
         /// <returns>True when the player had the key and it was used.</returns>
         public bool TryConsume(string keyId)
         {
-            return keyIds.Remove(keyId);
+            if (!keyIds.Remove(keyId))
+            {
+                return false;
+            }
+
+            Changed?.Invoke();
+            return true;
         }
 
         /// <summary>Replaces the held keys with saved ones.</summary>
@@ -53,6 +67,7 @@ namespace AfterLife.Systems
         {
             keyIds.Clear();
             keyIds.UnionWith(savedIds);
+            Changed?.Invoke();
         }
     }
 }

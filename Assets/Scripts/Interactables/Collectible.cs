@@ -51,7 +51,6 @@ namespace AfterLife.Interactables
         /// <summary>Announces the pickup and hides the item.</summary>
         public void Collect()
         {
-            Debug.Log($"Collected {type}: {uniqueId}"); // Temporary, for testing. Removed when the HUD exists (Stage 6).
             Collected?.Invoke(this);
             gameObject.SetActive(false);
         }
