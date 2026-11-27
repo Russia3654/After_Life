@@ -20,6 +20,13 @@ namespace AfterLife.Systems
         [Tooltip("Black overlay used between levels.")]
         [SerializeField]
         private ScreenFader fader;
+        [Tooltip("The player's health, carried to the next level.")]
+        [SerializeField]
+        private Health playerHealth;
+
+        [Tooltip("Hit points gained when entering a new level.")]
+        [SerializeField, Min(0)]
+        private int healthPerLevel = 1;
 
         private bool isLoading;
 
@@ -80,7 +87,11 @@ namespace AfterLife.Systems
                 return;
             }
 
-            SaveSystem.Save(new SaveData { LevelId = next.LevelId });
+            SaveSystem.Save(new SaveData
+            {
+                LevelId = next.LevelId,
+                HitPoints = playerHealth.Current + healthPerLevel
+            });
             Load(next);
         }
 

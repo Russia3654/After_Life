@@ -21,6 +21,9 @@ namespace AfterLife.Player
         [Tooltip("Seconds between death and respawn.")]
         [SerializeField, Min(0f)]
         private float respawnDelay = 0.8f;
+        [Tooltip("Hit points the player has after dying.")]
+        [SerializeField, Min(1)]
+        private int respawnHealth = 1;
         [Tooltip("Crates that return to their start position on respawn.")]
         [SerializeField]
         private PushableBlock[] blocksToReset;
@@ -98,7 +101,7 @@ namespace AfterLife.Player
             body.simulated = true;
             controller.enabled = true;
             interactor.enabled = true;
-            health.Restore();
+            health.SetCurrent(respawnHealth);
             Respawned?.Invoke();
         }
 

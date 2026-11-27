@@ -28,18 +28,24 @@ namespace AfterLife.Systems
         [SerializeField]
         private OrbCounter orbCounter;
 
+        [Tooltip("The player's health.")]
+        [SerializeField]
+        private Health playerHealth;
+
         private bool isRestoring;
 
         /// <summary>Listens for reached checkpoints.</summary>
         private void OnEnable()
         {
             Checkpoint.Reached += OnCheckpointReached;
+            PlayerRespawn.Respawned += OnRespawned;
         }
 
         /// <summary>Stops listening.</summary>
         private void OnDisable()
         {
             Checkpoint.Reached -= OnCheckpointReached;
+            PlayerRespawn.Respawned -= OnRespawned;
         }
 
         /// <summary>Restores the save if it belongs to this level.</summary>
@@ -63,6 +69,16 @@ namespace AfterLife.Systems
             SaveSystem.Save(Capture(checkpoint));
         }
 
+        /// <summary>Saves the lower health after a death, so Continue cannot refill it.</summary>
+        private void OnRespawned()
+        {
+            if (SaveSystem.TryLoad(out SaveData data) && data.LevelId == level.LevelId)
+            {
+                data.HitPoints = playerHealth.Current;
+                SaveSystem.Save(data);
+            }
+        }
+
         /// <summary>Collects the current state of the level.</summary>
         /// <param name="checkpoint">The checkpoint to respawn at.</param>
         private SaveData Capture(Checkpoint checkpoint)
@@ -71,7 +87,8 @@ namespace AfterLife.Systems
             {
                 LevelId = level.LevelId,
                 CheckpointId = checkpoint.UniqueId,
-                Dimension = dimensionManager.Current
+                Dimension = dimensionManager.Current,
+                HitPoints = playerHealth.Current
             };
 
             data.HeldKeyIds.AddRange(inventory.HeldKeyIds);
@@ -144,6 +161,10 @@ namespace AfterLife.Systems
             RestoreActivated(data);
             RestoreBlocks(data);
             inventory.Restore(data.HeldKeyIds);
+            if (data.HitPoints > 0)
+            {
+                playerHealth.SetCurrent(data.HitPoints);
+            }
             RestorePlayer(data);
 
             isRestoring = false;

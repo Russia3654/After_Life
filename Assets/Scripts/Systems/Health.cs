@@ -71,10 +71,11 @@ namespace AfterLife.Systems
             Changed?.Invoke(Current, maxHealth);
         }
 
-        /// <summary>Restores full health, for example after respawning.</summary>
-        public void Restore()
+        /// <summary>Sets the hit points, kept between 1 and the maximum.</summary>
+        /// <param name="value">The new hit points.</param>
+        public void SetCurrent(int value)
         {
-            Current = maxHealth;
+            Current = Mathf.Clamp(value, 1, maxHealth);
             Changed?.Invoke(Current, maxHealth);
         }
 

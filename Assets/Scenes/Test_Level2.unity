@@ -2569,6 +2569,8 @@ MonoBehaviour:
   settings: {fileID: 11400000, guid: 984114f770df5df4398bb4630ada427f, type: 2}
   currentLevel: {fileID: 11400000, guid: 8c1abae480d4fd94d9b798dc1871c92e, type: 2}
   fader: {fileID: 929385891}
+  playerHealth: {fileID: 1872226641}
+  healthPerLevel: 1
 --- !u!4 &1007923151
 Transform:
   m_ObjectHideFlags: 0
@@ -2948,6 +2950,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AfterLife.Interactables.Collectible
   uniqueId: orb_002
   type: 0
+  healAmount: 1
   collectorLayers:
     serializedVersion: 2
     m_Bits: 128
@@ -3397,6 +3400,7 @@ MonoBehaviour:
   inventory: {fileID: 1086906680}
   playerRespawn: {fileID: 1872226642}
   orbCounter: {fileID: 1086906682}
+  playerHealth: {fileID: 1872226641}
 --- !u!4 &1417260182
 Transform:
   m_ObjectHideFlags: 0
@@ -4496,6 +4500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AfterLife.Interactables.Collectible
   uniqueId: key_001
   type: 1
+  healAmount: 1
   collectorLayers:
     serializedVersion: 2
     m_Bits: 128
@@ -4778,6 +4783,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AfterLife.Interactables.Collectible
   uniqueId: orb_001
   type: 0
+  healAmount: 1
   collectorLayers:
     serializedVersion: 2
     m_Bits: 128
@@ -5085,6 +5091,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AfterLife.Player.PlayerRespawn
   dimensionManager: {fileID: 652393839}
   respawnDelay: 0.8
+  respawnHealth: 1
   blocksToReset:
   - {fileID: 1479367367}
 --- !u!1 &1996394790

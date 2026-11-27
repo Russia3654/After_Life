@@ -16,6 +16,8 @@ namespace AfterLife.Data
         [SerializeField]
         private Dimension dimension;
         [SerializeField]
+        private int hitPoints;
+        [SerializeField]
         private List<string> collectedIds = new List<string>();
         [SerializeField]
         private List<string> activatedIds = new List<string>();
@@ -29,6 +31,9 @@ namespace AfterLife.Data
 
         /// <summary>ID of the last checkpoint, or empty for the level start.</summary>
         public string CheckpointId { get => checkpointId; set => checkpointId = value; }
+
+        /// <summary>The player's health. Zero means full.</summary>
+        public int HitPoints { get => hitPoints; set => hitPoints = value; }
 
         /// <summary>The dimension to restore.</summary>
         public Dimension Dimension { get => dimension; set => dimension = value; }

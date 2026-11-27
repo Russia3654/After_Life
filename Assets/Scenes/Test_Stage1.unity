@@ -3354,6 +3354,7 @@ MonoBehaviour:
   inventory: {fileID: 1086906680}
   playerRespawn: {fileID: 1872226642}
   orbCounter: {fileID: 1086906682}
+  playerHealth: {fileID: 1872226641}
 --- !u!4 &1417260182
 Transform:
   m_ObjectHideFlags: 0
@@ -3981,6 +3982,8 @@ MonoBehaviour:
   settings: {fileID: 11400000, guid: 984114f770df5df4398bb4630ada427f, type: 2}
   currentLevel: {fileID: 11400000, guid: 829a5ff8bd8fb7a4e8f40ec8939e9f83, type: 2}
   fader: {fileID: 4957622105071404621}
+  playerHealth: {fileID: 1872226641}
+  healthPerLevel: 1
 --- !u!4 &1612128909
 Transform:
   m_ObjectHideFlags: 0
@@ -5144,6 +5147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AfterLife.Player.PlayerRespawn
   dimensionManager: {fileID: 652393839}
   respawnDelay: 0.8
+  respawnHealth: 1
   blocksToReset:
   - {fileID: 1479367367}
 --- !u!1 &1996394790
