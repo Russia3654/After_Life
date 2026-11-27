@@ -41,6 +41,8 @@ namespace AfterLife.Player
         private LayerMask groundLayers;
 
         private Rigidbody2D body;
+        /// <summary>Raised when the player jumps.</summary>
+        public static event System.Action Jumped;
         private InputAction moveAction;
         private InputAction runAction;
         private InputAction jumpAction;
@@ -138,6 +140,7 @@ namespace AfterLife.Player
             body.linearVelocity = new Vector2(body.linearVelocity.x, jumpVelocity);
             jumpBufferTimer = 0f;
             coyoteTimer = 0f;
+            Jumped?.Invoke();
         }
 
         /// <summary>Shortens the jump when the button is released while still rising.</summary>

@@ -1,6 +1,7 @@
 using UnityEngine;
 using AfterLife.Dimensions;
 using AfterLife.Interactables;
+using AfterLife.Player;
 
 namespace AfterLife.Systems
 {
@@ -41,6 +42,26 @@ namespace AfterLife.Systems
         [SerializeField]
         private AudioClip exitClip;
 
+        [Tooltip("Player jump.")]
+        [SerializeField]
+        private AudioClip jumpClip;
+
+        [Tooltip("Taking damage.")]
+        [SerializeField]
+        private AudioClip hurtClip;
+
+        [Tooltip("Dying.")]
+        [SerializeField]
+        private AudioClip deathClip;
+
+        [Tooltip("Reaching a checkpoint.")]
+        [SerializeField]
+        private AudioClip checkpointClip;
+
+        [Tooltip("Switches, locks and pressure plates.")]
+        [SerializeField]
+        private AudioClip mechanismClip;
+
         private static AudioManager instance;
         private AudioSource effectsSource;
         private AudioSource musicSource;
@@ -71,6 +92,11 @@ namespace AfterLife.Systems
             Collectible.Collected += OnCollected;
             DimensionManager.PlayerSwitched += OnSwitched;
             LevelExit.PlayerReachedExit += OnExitReached;
+            PlayerController.Jumped += OnJumped;
+            Health.Damaged += OnDamaged;
+            Checkpoint.Touched += OnCheckpointTouched;
+            Interactable.Used += OnMechanismUsed;
+            PressurePlate.Pressed += OnMechanismUsed;
         }
 
         /// <summary>Starts the music.</summary>
@@ -88,6 +114,11 @@ namespace AfterLife.Systems
             Collectible.Collected -= OnCollected;
             DimensionManager.PlayerSwitched -= OnSwitched;
             LevelExit.PlayerReachedExit -= OnExitReached;
+            PlayerController.Jumped -= OnJumped;
+            Health.Damaged -= OnDamaged;
+            Checkpoint.Touched -= OnCheckpointTouched;
+            Interactable.Used -= OnMechanismUsed;
+            PressurePlate.Pressed -= OnMechanismUsed;
         }
 
         /// <summary>Plays the sound for the kind of pickup.</summary>
@@ -118,6 +149,31 @@ namespace AfterLife.Systems
         private void OnExitReached()
         {
             Play(exitClip);
+        }
+
+        /// <summary>Plays the jump sound.</summary>
+        private void OnJumped()
+        {
+            Play(jumpClip);
+        }
+
+        /// <summary>Plays the hurt sound, or the death sound for a fatal hit.</summary>
+        /// <param name="health">The health that was damaged.</param>
+        private void OnDamaged(Health health)
+        {
+            Play(health.IsDead ? deathClip : hurtClip);
+        }
+
+        /// <summary>Plays the checkpoint sound.</summary>
+        private void OnCheckpointTouched()
+        {
+            Play(checkpointClip);
+        }
+
+        /// <summary>Plays the mechanism sound.</summary>
+        private void OnMechanismUsed()
+        {
+            Play(mechanismClip);
         }
 
         /// <summary>Plays one effect. An empty clip slot stays silent.</summary>

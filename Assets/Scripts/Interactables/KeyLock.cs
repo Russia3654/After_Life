@@ -53,6 +53,7 @@ namespace AfterLife.Interactables
             }
 
             Unlock();
+            ReportUse();
         }
 
         /// <summary>Opens the lock, tints it and raises the channel.</summary>

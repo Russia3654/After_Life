@@ -23,6 +23,8 @@ namespace AfterLife.Systems
 
         /// <summary>Raised once when health reaches zero.</summary>
         public event Action Died;
+        /// <summary>Raised after any health takes damage, fatal or not.</summary>
+        public static event Action<Health> Damaged;
 
         /// <summary>Current hit points.</summary>
         public int Current { get; private set; }
@@ -51,6 +53,7 @@ namespace AfterLife.Systems
             invulnerableUntil = Time.time + invulnerabilityTime;
             Current = Mathf.Max(Current - amount, 0);
             Changed?.Invoke(Current, maxHealth);
+            Damaged?.Invoke(this);
 
             if (IsDead)
             {

@@ -4,6 +4,7 @@ using UnityEngine;
 using AfterLife.Dimensions;
 using AfterLife.Interactables;
 using AfterLife.Systems;
+using AfterLife.Player;
 
 namespace AfterLife.Player
 {

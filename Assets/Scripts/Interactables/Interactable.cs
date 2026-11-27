@@ -17,5 +17,14 @@ namespace AfterLife.Interactables
 
         /// <summary>Called by the player when they press the interact key in range.</summary>
         public abstract void Interact();
+
+        /// <summary>Raised when the player successfully uses an interactable.</summary>
+        public static event System.Action Used;
+
+        /// <summary>Announces a successful use.</summary>
+        protected void ReportUse()
+        {
+            Used?.Invoke();
+        }
     }
 }

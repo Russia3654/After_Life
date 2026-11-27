@@ -40,6 +40,7 @@ namespace AfterLife.Interactables
             }
 
             TurnOn();
+            ReportUse();
         }
 
         /// <summary>Turns the switch on, tints it and raises the channel.</summary>

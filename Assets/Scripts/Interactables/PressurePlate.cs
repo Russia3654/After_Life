@@ -48,6 +48,9 @@ namespace AfterLife.Interactables
         /// <summary>True while at least one object stands on the plate.</summary>
         public bool IsPressed => isActive;
 
+        /// <summary>Raised when any plate becomes pressed.</summary>
+        public static event System.Action Pressed;
+
         /// <summary>Makes sure the collider is a trigger and remembers the idle color.</summary>
         private void Reset()
         {
@@ -121,6 +124,7 @@ namespace AfterLife.Interactables
             isActive = true;
             spriteRenderer.color = pressedColor;
             pressedChannel.Raise();
+            Pressed?.Invoke();
         }
 
         /// <summary>Turns the plate off: restores its color and raises the released channel.</summary>

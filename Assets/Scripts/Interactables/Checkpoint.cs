@@ -30,6 +30,8 @@ namespace AfterLife.Interactables
 
         /// <summary>Raised when the player reaches a checkpoint for the first time.</summary>
         public static event Action<Checkpoint> Reached;
+        /// <summary>Raised when the player walks into a new checkpoint.</summary>
+        public static event Action Touched;
 
         /// <summary>The stable ID of this checkpoint.</summary>
         public string UniqueId => uniqueId;
@@ -56,6 +58,7 @@ namespace AfterLife.Interactables
             }
 
             Activate();
+            Touched?.Invoke();
         }
 
         /// <summary>Marks the checkpoint as reached, tints it and announces it.</summary>
@@ -63,7 +66,6 @@ namespace AfterLife.Interactables
         {
             IsReached = true;
             spriteRenderer.color = reachedColor;
-            Debug.Log($"Checkpoint reached: {uniqueId}"); // Temporary, for testing.
             Reached?.Invoke(this);
         }
     }
