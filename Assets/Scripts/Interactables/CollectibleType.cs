@@ -4,6 +4,7 @@ namespace AfterLife.Interactables
     public enum CollectibleType
     {
         Orb,
-        Key
+        Key,
+        Heart
     }
 }

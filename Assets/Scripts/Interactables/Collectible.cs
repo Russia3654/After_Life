@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using AfterLife.Systems;
 
 namespace AfterLife.Interactables
 {
@@ -14,9 +15,15 @@ namespace AfterLife.Interactables
         [Tooltip("Unique, never-changing ID used by the save system.")]
         [SerializeField]
         private string uniqueId;
+
         [Tooltip("What kind of item this is.")]
         [SerializeField]
         private CollectibleType type = CollectibleType.Orb;
+
+        [Tooltip("Hit points a heart restores. Ignored by other types.")]
+        [SerializeField, Min(1)]
+        private int healAmount = 1;
+
         [Tooltip("Layers that can pick this item up (the Player layer).")]
         [SerializeField]
         private LayerMask collectorLayers;
@@ -44,8 +51,26 @@ namespace AfterLife.Interactables
             {
                 return;
             }
+            if (type == CollectibleType.Heart && !TryHeal(other))
+            {
+                return;
+            }
 
             Collect();
+        }
+
+        /// <summary>Heals the collector if it is missing health.</summary>
+        /// <param name="collector">The collider that touched the heart.</param>
+        /// <returns>True when the heart was used up.</returns>
+        private bool TryHeal(Collider2D collector)
+        {
+            if (!collector.TryGetComponent(out Health health) || health.IsFull)
+            {
+                return false;
+            }
+
+            health.Heal(healAmount);
+            return true;
         }
 
         /// <summary>Announces the pickup and hides the item.</summary>

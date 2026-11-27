@@ -30,6 +30,9 @@ namespace AfterLife.Systems
         /// <summary>True when no hit points remain.</summary>
         public bool IsDead => Current <= 0;
 
+        /// <summary>True when no hit points are missing.</summary>
+        public bool IsFull => Current >= maxHealth;
+
         /// <summary>Starts at full health.</summary>
         private void Awake()
         {
@@ -53,6 +56,19 @@ namespace AfterLife.Systems
             {
                 Died?.Invoke();
             }
+        }
+
+        /// <summary>Gives back hit points, up to the maximum. Does nothing when dead.</summary>
+        /// <param name="amount">Hit points to restore.</param>
+        public void Heal(int amount)
+        {
+            if (amount <= 0 || IsDead || IsFull)
+            {
+                return;
+            }
+
+            Current = Mathf.Min(Current + amount, maxHealth);
+            Changed?.Invoke(Current, maxHealth);
         }
 
         /// <summary>Restores full health, for example after respawning.</summary>
