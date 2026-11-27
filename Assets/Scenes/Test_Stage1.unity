@@ -364,7 +364,7 @@ Transform:
   m_GameObject: {fileID: 32457476}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.93, y: -2.07, z: 0}
+  m_LocalPosition: {x: 5.52, y: -1.92, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2518,6 +2518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 500f25a26d2abbb47bc479f9a7240624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AfterLife.Systems.OrbCounter
+  settings: {fileID: 11400000, guid: 984114f770df5df4398bb4630ada427f, type: 2}
 --- !u!1 &1136927715
 GameObject:
   m_ObjectHideFlags: 0
@@ -3984,6 +3985,7 @@ MonoBehaviour:
   fader: {fileID: 4957622105071404621}
   playerHealth: {fileID: 1872226641}
   healthPerLevel: 1
+  orbCounter: {fileID: 1086906682}
 --- !u!4 &1612128909
 Transform:
   m_ObjectHideFlags: 0

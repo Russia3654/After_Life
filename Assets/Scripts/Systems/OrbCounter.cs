@@ -1,22 +1,33 @@
 using System;
 using UnityEngine;
+using AfterLife.Data;
 using AfterLife.Interactables;
 
 namespace AfterLife.Systems
 {
-    /// <summary>Counts the spirit orbs collected in this level.</summary>
+    /// <summary>Counts the spirit orbs collected across the whole game.</summary>
     public class OrbCounter : MonoBehaviour
     {
+        [Header("Setup")]
+        [Tooltip("The level order, used for the game's orb total.")]
+        [SerializeField]
+        private GameSettings settings;
+
         private Collectible[] items;
+        private int levelCount;
 
         /// <summary>Raised when the count changes.</summary>
         public event Action Changed;
 
-        /// <summary>Orbs collected so far.</summary>
-        public int Count { get; private set; }
+        /// <summary>Orbs collected in earlier levels.</summary>
+        // ponytail: a number is enough while levels are never revisited; store IDs if they can be.
+        public int Carried { get; private set; }
 
-        /// <summary>Orbs placed in the level.</summary>
-        public int Total { get; private set; }
+        /// <summary>Orbs collected in the whole game.</summary>
+        public int Count => Carried + levelCount;
+
+        /// <summary>Orbs in the whole game.</summary>
+        public int Total => settings.TotalOrbs;
 
         /// <summary>Finds every pickup, including ones already hidden.</summary>
         private void Awake()
@@ -42,24 +53,24 @@ namespace AfterLife.Systems
             Collectible.Collected -= OnCollected;
         }
 
-        /// <summary>Counts from the scene. Call this after a save hides collected orbs.</summary>
-        public void Recount()
+        /// <summary>Applies a save, after it has hidden this level's collected orbs.</summary>
+        /// <param name="carried">Orbs collected in earlier levels.</param>
+        public void Restore(int carried)
         {
-            Count = 0;
-            Total = 0;
+            Carried = carried;
+            Recount();
+        }
+
+        /// <summary>Counts this level's hidden orbs.</summary>
+        private void Recount()
+        {
+            levelCount = 0;
 
             foreach (Collectible item in items)
             {
-                if (item.Type != CollectibleType.Orb)
+                if (item.Type == CollectibleType.Orb && !item.gameObject.activeSelf)
                 {
-                    continue;
-                }
-
-                Total++;
-
-                if (!item.gameObject.activeSelf)
-                {
-                    Count++;
+                    levelCount++;
                 }
             }
 
@@ -75,7 +86,7 @@ namespace AfterLife.Systems
                 return;
             }
 
-            Count++;
+            levelCount++;
             Changed?.Invoke();
         }
     }

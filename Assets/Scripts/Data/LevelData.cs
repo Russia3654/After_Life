@@ -18,6 +18,10 @@ namespace AfterLife.Data
         [SerializeField]
         private string sceneName;
 
+        [Tooltip("Number of orbs placed in this level's scene.")]
+        [SerializeField, Min(0)]
+        private int orbCount;
+
         [Header("Clues")]
         [Tooltip("Lines unlocked by collecting orbs.")]
         [SerializeField]
@@ -31,6 +35,9 @@ namespace AfterLife.Data
 
         /// <summary>Exact name of the level's scene.</summary>
         public string SceneName => sceneName;
+
+        /// <summary>Number of orbs placed in the level.</summary>
+        public int OrbCount => orbCount;
 
         /// <summary>Returns the clue lines unlocked by the given number of orbs.</summary>
         /// <param name="orbCount">Orbs the player has collected.</param>

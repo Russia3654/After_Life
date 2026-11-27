@@ -18,6 +18,8 @@ namespace AfterLife.Data
         [SerializeField]
         private int hitPoints;
         [SerializeField]
+        private int carriedOrbs;
+        [SerializeField]
         private List<string> collectedIds = new List<string>();
         [SerializeField]
         private List<string> activatedIds = new List<string>();
@@ -34,6 +36,9 @@ namespace AfterLife.Data
 
         /// <summary>The player's health. Zero means full.</summary>
         public int HitPoints { get => hitPoints; set => hitPoints = value; }
+
+        /// <summary>Orbs collected in earlier levels.</summary>
+        public int CarriedOrbs { get => carriedOrbs; set => carriedOrbs = value; }
 
         /// <summary>The dimension to restore.</summary>
         public Dimension Dimension { get => dimension; set => dimension = value; }

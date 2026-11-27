@@ -2571,6 +2571,7 @@ MonoBehaviour:
   fader: {fileID: 929385891}
   playerHealth: {fileID: 1872226641}
   healthPerLevel: 1
+  orbCounter: {fileID: 1086906682}
 --- !u!4 &1007923151
 Transform:
   m_ObjectHideFlags: 0
@@ -2643,6 +2644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 500f25a26d2abbb47bc479f9a7240624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AfterLife.Systems.OrbCounter
+  settings: {fileID: 11400000, guid: 984114f770df5df4398bb4630ada427f, type: 2}
 --- !u!1 &1136927715
 GameObject:
   m_ObjectHideFlags: 0

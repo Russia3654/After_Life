@@ -88,7 +88,8 @@ namespace AfterLife.Systems
                 LevelId = level.LevelId,
                 CheckpointId = checkpoint.UniqueId,
                 Dimension = dimensionManager.Current,
-                HitPoints = playerHealth.Current
+                HitPoints = playerHealth.Current,
+                CarriedOrbs = orbCounter.Carried
             };
 
             data.HeldKeyIds.AddRange(inventory.HeldKeyIds);
@@ -157,7 +158,7 @@ namespace AfterLife.Systems
             isRestoring = true;
 
             RestoreCollected(data);
-            orbCounter.Recount();
+            orbCounter.Restore(data.CarriedOrbs);
             RestoreActivated(data);
             RestoreBlocks(data);
             inventory.Restore(data.HeldKeyIds);

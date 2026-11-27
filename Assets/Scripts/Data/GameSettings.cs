@@ -15,6 +15,22 @@ namespace AfterLife.Data
         /// <summary>The level a new game starts in.</summary>
         public LevelData FirstLevel => levels[0];
 
+        /// <summary>Number of orbs in the whole game.</summary>
+        public int TotalOrbs
+        {
+            get
+            {
+                int total = 0;
+
+                foreach (LevelData level in levels)
+                {
+                    total += level.OrbCount;
+                }
+
+                return total;
+            }
+        }
+
         /// <summary>Finds a level by its ID.</summary>
         /// <param name="levelId">The ID stored in the save.</param>
         /// <returns>The level, or null when unknown.</returns>

@@ -15,6 +15,7 @@ MonoBehaviour:
   levelId: level_test
   displayName: Test Grounds
   sceneName: Test_Stage1
+  orbCount: 2
   clues:
   - requiredOrbs: 1
     text: A warm den. Someone was waiting there.

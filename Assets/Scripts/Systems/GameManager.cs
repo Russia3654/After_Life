@@ -14,12 +14,15 @@ namespace AfterLife.Systems
         [Tooltip("The level order.")]
         [SerializeField]
         private GameSettings settings;
+
         [Tooltip("The level in this scene.")]
         [SerializeField]
         private LevelData currentLevel;
+
         [Tooltip("Black overlay used between levels.")]
         [SerializeField]
         private ScreenFader fader;
+
         [Tooltip("The player's health, carried to the next level.")]
         [SerializeField]
         private Health playerHealth;
@@ -27,6 +30,10 @@ namespace AfterLife.Systems
         [Tooltip("Hit points gained when entering a new level.")]
         [SerializeField, Min(0)]
         private int healthPerLevel = 1;
+
+        [Tooltip("The scene's orb counter, carried to the next level.")]
+        [SerializeField]
+        private OrbCounter orbCounter;
 
         private bool isLoading;
 
@@ -90,7 +97,8 @@ namespace AfterLife.Systems
             SaveSystem.Save(new SaveData
             {
                 LevelId = next.LevelId,
-                HitPoints = playerHealth.Current + healthPerLevel
+                HitPoints = playerHealth.Current + healthPerLevel,
+                CarriedOrbs = orbCounter.Count
             });
             Load(next);
         }
