@@ -47,5 +47,27 @@ namespace AfterLife.Data
             int next = levels.IndexOf(current) + 1;
             return next > 0 && next < levels.Count ? levels[next] : null;
         }
+
+        /// <summary>Finds the clue unlocked at exactly this orb total, in any level.</summary>
+        /// <param name="orbCount">Orbs collected in the whole game.</param>
+        /// <param name="text">The clue line, or null when there is none.</param>
+        /// <returns>True when a clue was found.</returns>
+        public bool TryGetClue(int orbCount, out string text)
+        {
+            foreach (LevelData level in levels)
+            {
+                foreach (OrbClue clue in level.GetUnlockedClues(orbCount))
+                {
+                    if (clue.RequiredOrbs == orbCount)
+                    {
+                        text = clue.Text;
+                        return true;
+                    }
+                }
+            }
+
+            text = null;
+            return false;
+        }
     }
 }

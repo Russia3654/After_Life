@@ -17,7 +17,7 @@ MonoBehaviour:
   sceneName: Test_Level2
   orbCount: 2
   clues:
-  - requiredOrbs: 1
-    text: A warm den. Someone was waiting there.
-  - requiredOrbs: 2
-    text: You remember running. From what?
+  - requiredOrbs: 3
+    text: A road at night. Two bright lights.
+  - requiredOrbs: 4
+    text: Someone still calls your name.

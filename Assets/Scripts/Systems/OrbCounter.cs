@@ -19,6 +19,9 @@ namespace AfterLife.Systems
         /// <summary>Raised when the count changes.</summary>
         public event Action Changed;
 
+        /// <summary>Raised on a pickup, with the new total. Loading a save does not raise it.</summary>
+        public event Action<int> Gained;
+
         /// <summary>Orbs collected in earlier levels.</summary>
         // ponytail: a number is enough while levels are never revisited; store IDs if they can be.
         public int Carried { get; private set; }
@@ -87,6 +90,7 @@ namespace AfterLife.Systems
             }
 
             levelCount++;
+            Gained?.Invoke(Count);
             Changed?.Invoke();
         }
     }
