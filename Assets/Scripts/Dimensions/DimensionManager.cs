@@ -25,6 +25,9 @@ namespace AfterLife.Dimensions
         /// <summary>Raised whenever the active dimension is set, including once at startup.</summary>
         public static event Action<Dimension> DimensionChanged;
 
+        /// <summary>Raised only when the player presses the switch button, not on respawn or load.</summary>
+        public static event Action PlayerSwitched;
+
         /// <summary>The dimension the player is currently in.</summary>
         public Dimension Current { get; private set; }
 
@@ -88,6 +91,7 @@ namespace AfterLife.Dimensions
 
             nextSwitchTime = Time.time + switchCooldown;
             Switch();
+            PlayerSwitched?.Invoke();
         }
     }
 }
