@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using AfterLife.Data;
 using AfterLife.Interactables;
+using System.Collections;
+using AfterLife.UI;
 
 namespace AfterLife.Systems
 {
@@ -15,6 +17,9 @@ namespace AfterLife.Systems
         [Tooltip("The level in this scene.")]
         [SerializeField]
         private LevelData currentLevel;
+        [Tooltip("Black overlay used between levels.")]
+        [SerializeField]
+        private ScreenFader fader;
 
         private bool isLoading;
 
@@ -22,6 +27,12 @@ namespace AfterLife.Systems
         private void OnEnable()
         {
             LevelExit.PlayerReachedExit += OnExitReached;
+        }
+
+        /// <summary>Reveals the level with its name.</summary>
+        private void Start()
+        {
+            StartCoroutine(fader.FadeIn(currentLevel.DisplayName));
         }
 
         /// <summary>Stops listening.</summary>
@@ -73,12 +84,20 @@ namespace AfterLife.Systems
             Load(next);
         }
 
-        /// <summary>Loads a level's scene.</summary>
+        /// <summary>Leaves the current level for another one.</summary>
         /// <param name="level">The level to load.</param>
         private void Load(LevelData level)
         {
             isLoading = true;
-            SceneManager.LoadScene(level.SceneName);
+            StartCoroutine(FadeOutAndLoad(level.SceneName));
+        }
+
+        /// <summary>Waits for the screen to turn black, then loads the scene.</summary>
+        /// <param name="sceneName">Scene to load.</param>
+        private IEnumerator FadeOutAndLoad(string sceneName)
+        {
+            yield return fader.FadeOut();
+            SceneManager.LoadScene(sceneName);
         }
     }
 }

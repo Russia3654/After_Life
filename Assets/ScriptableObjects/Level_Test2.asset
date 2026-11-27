@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level_Test2
   m_EditorClassIdentifier: Assembly-CSharp::AfterLife.Data.LevelData
   levelId: level_test2
-  displayName: Test Grounds
+  displayName: Test Grounds II
   sceneName: Test_Level2
   clues:
   - requiredOrbs: 1
