@@ -44,10 +44,10 @@ namespace AfterLife.Systems
             LevelExit.PlayerReachedExit += OnExitReached;
         }
 
-        /// <summary>Reveals the scene with its name.</summary>
+        /// <summary>Reveals the scene, naming it first when it is a level.</summary>
         private void Start()
         {
-            string title = currentLevel != null ? currentLevel.DisplayName : settings.GameTitle;
+            string title = currentLevel != null ? currentLevel.DisplayName : string.Empty;
             StartCoroutine(fader.FadeIn(title));
         }
 

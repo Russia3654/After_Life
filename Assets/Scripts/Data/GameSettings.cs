@@ -8,10 +8,6 @@ namespace AfterLife.Data
     public class GameSettings : ScriptableObject
     {
         [Header("Menu")]
-        [Tooltip("Name shown while the main menu fades in.")]
-        [SerializeField]
-        private string gameTitle = "The Other Side";
-
         [Tooltip("Exact name of the main menu scene.")]
         [SerializeField]
         private string menuSceneName = "MainMenu";
@@ -20,9 +16,6 @@ namespace AfterLife.Data
         [Tooltip("All levels, in play order.")]
         [SerializeField]
         private List<LevelData> levels = new List<LevelData>();
-
-        /// <summary>The game's name.</summary>
-        public string GameTitle => gameTitle;
 
         /// <summary>Exact name of the main menu scene.</summary>
         public string MenuSceneName => menuSceneName;

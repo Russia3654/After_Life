@@ -31,13 +31,18 @@ namespace AfterLife.UI
             canvasGroup.alpha = 1f;
         }
 
-        /// <summary>Freezes the game while the title shows, then reveals the level.</summary>
-        /// <param name="levelName">Name to show.</param>
+                /// <summary>Shows a title on a frozen black screen, then reveals the scene.</summary>
+        /// <param name="levelName">Name to show. Empty skips the pause.</param>
         public IEnumerator FadeIn(string levelName)
         {
             title.text = levelName;
-            Time.timeScale = 0f;
-            yield return new WaitForSecondsRealtime(titleDuration);
+
+            if (!string.IsNullOrEmpty(levelName))
+            {
+                Time.timeScale = 0f;
+                yield return new WaitForSecondsRealtime(titleDuration);
+            }
+
             Time.timeScale = 1f;
             yield return Fade(0f);
         }

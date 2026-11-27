@@ -1,4 +1,4 @@
-# The Other Side (Unity project "After LIfe")
+# After Life (Unity project folder "After LIfe")
 
 2D puzzle-platformer. Unity 6000.6.4f1, URP 2D, Input System 1.20, Cinemachine 3.x (install via Package Manager).
 Deadline 2026-12-11; target finish about 2026-11-30.
