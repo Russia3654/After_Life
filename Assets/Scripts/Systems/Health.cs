@@ -47,7 +47,6 @@ namespace AfterLife.Systems
 
             invulnerableUntil = Time.time + invulnerabilityTime;
             Current = Mathf.Max(Current - amount, 0);
-            Debug.Log($"{name} health: {Current}/{maxHealth}"); // Temporary. The HUD replaces it in Stage 6.
             Changed?.Invoke(Current, maxHealth);
 
             if (IsDead)
