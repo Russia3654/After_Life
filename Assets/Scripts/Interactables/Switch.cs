@@ -1,5 +1,6 @@
 using UnityEngine;
 using AfterLife.Data;
+using AfterLife.Dimensions;
 
 namespace AfterLife.Interactables
 {
@@ -16,14 +17,9 @@ namespace AfterLife.Interactables
         [Tooltip("The channel raised when the switch is flipped.")]
         [SerializeField]
         private GameEventChannel channel;
-
-        [Header("Visuals")]
-        [Tooltip("Sprite renderer tinted when the switch is on.")]
+        [Tooltip("Plays the activation animation.")]
         [SerializeField]
-        private SpriteRenderer spriteRenderer;
-        [Tooltip("Color shown once the switch is on.")]
-        [SerializeField]
-        private Color onColor = new Color(0.961f, 0.843f, 0.431f);
+        private DimensionAnimation visual;
 
         /// <summary>The stable ID of this switch.</summary>
         public string UniqueId => uniqueId;
@@ -47,7 +43,7 @@ namespace AfterLife.Interactables
         public void TurnOn()
         {
             IsOn = true;
-            spriteRenderer.color = onColor;
+            visual.Show(true);
             channel.Raise();
         }
     }

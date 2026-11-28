@@ -1,6 +1,7 @@
 using UnityEngine;
 using AfterLife.Data;
 using AfterLife.Systems;
+using AfterLife.Dimensions;
 
 namespace AfterLife.Interactables
 {
@@ -23,14 +24,9 @@ namespace AfterLife.Interactables
         [Tooltip("The channel raised when the lock is opened.")]
         [SerializeField]
         private GameEventChannel channel;
-
-        [Header("Visuals")]
-        [Tooltip("Sprite renderer tinted once the lock is open.")]
+        [Tooltip("Plays the activation animation.")]
         [SerializeField]
-        private SpriteRenderer spriteRenderer;
-        [Tooltip("Color shown once the lock is open.")]
-        [SerializeField]
-        private Color openColor = new Color(0.961f, 0.843f, 0.431f);
+        private DimensionAnimation visual;
 
         /// <summary>The stable ID of this lock.</summary>
         public string UniqueId => uniqueId;
@@ -60,7 +56,7 @@ namespace AfterLife.Interactables
         public void Unlock()
         {
             IsUnlocked = true;
-            spriteRenderer.color = openColor;
+            visual.Show(true);
             channel.Raise();
         }
     }

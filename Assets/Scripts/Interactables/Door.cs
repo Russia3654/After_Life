@@ -24,6 +24,7 @@ namespace AfterLife.Interactables
         private Collider2D doorCollider;
         private SpriteRenderer doorRenderer;
         private DimensionWorld world;
+        private DimensionAnimation doorAnimation;
 
         /// <summary>The stable ID of this door.</summary>
         public string UniqueId => uniqueId;
@@ -37,6 +38,7 @@ namespace AfterLife.Interactables
             doorCollider = GetComponent<Collider2D>();
             doorRenderer = GetComponent<SpriteRenderer>();
             world = GetComponentInParent<DimensionWorld>();
+            doorAnimation = GetComponent<DimensionAnimation>();
         }
 
         /// <summary>Starts listening to the open and close channels.</summary>
@@ -92,12 +94,13 @@ namespace AfterLife.Interactables
             Refresh();
         }
 
-        /// <summary>Shows and blocks only while the door is closed and its world is visible.</summary>
+        /// <summary>Keeps the door visible, solid only while closed, and animates it.</summary>
         private void Refresh()
         {
-            bool isSolid = !IsOpen && (world == null || world.IsVisible);
-            doorCollider.enabled = isSolid;
-            doorRenderer.enabled = isSolid;
+            bool isVisible = world == null || world.IsVisible;
+            doorCollider.enabled = isVisible && !IsOpen;
+            doorRenderer.enabled = isVisible;
+            doorAnimation.Show(IsOpen);
         }
     }
 }
