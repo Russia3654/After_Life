@@ -22,6 +22,10 @@ namespace AfterLife.UI
         [SerializeField]
         private TMP_Text label;
 
+        [Tooltip("Fades the fog and the text together.")]
+        [SerializeField]
+        private CanvasGroup group;
+
         [Header("Timing")]
         [Tooltip("Seconds the line stays fully visible.")]
         [SerializeField, Min(0f)]
@@ -40,7 +44,7 @@ namespace AfterLife.UI
         /// <summary>Starts with no text.</summary>
         private void Start()
         {
-            label.text = string.Empty;
+            group.alpha = 0f;
         }
 
         /// <summary>Stops listening.</summary>
@@ -67,16 +71,16 @@ namespace AfterLife.UI
         private IEnumerator Show(string line)
         {
             label.text = line;
-            label.alpha = 1f;
+            group.alpha = 1f;
             yield return new WaitForSeconds(showDuration);
 
             for (float time = 0f; time < fadeDuration; time += Time.deltaTime)
             {
-                label.alpha = 1f - time / fadeDuration;
+                group.alpha = 1f - time / fadeDuration;
                 yield return null;
             }
 
-            label.text = string.Empty;
+            group.alpha = 0f;
         }
     }
 }

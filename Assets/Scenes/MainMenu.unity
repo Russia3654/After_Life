@@ -819,10 +819,10 @@ MonoBehaviour:
   lineText: {fileID: 876428651}
   gameManager: {fileID: 1037573037}
   lines:
-  - A small light wakes in the dark.
-  - You were a fox. You don't remember dying.
-  - 'Two worlds lie over each other: one bright, one hushed.'
-  - Somewhere between them, there is a way out.
+  - The street is quiet. One window is still lit.
+  - You are a small flame now. You don't remember why.
+  - Close your eyes, and the same street grows roots.
+  - Between the two, someone is waiting.
   fadeDuration: 1
   holdDuration: 2.5
 --- !u!225 &572435749

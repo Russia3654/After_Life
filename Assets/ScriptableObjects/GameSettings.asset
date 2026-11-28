@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4283e60588f9acd41b873db2cbb34517, type: 3}
   m_Name: GameSettings
   m_EditorClassIdentifier: Assembly-CSharp::AfterLife.Data.GameSettings
+  menuSceneName: MainMenu
   levels:
-  - {fileID: 11400000, guid: 829a5ff8bd8fb7a4e8f40ec8939e9f83, type: 2}
-  - {fileID: 11400000, guid: 8c1abae480d4fd94d9b798dc1871c92e, type: 2}
+  - {fileID: 11400000, guid: 87216a0838102c1488c62fdfb25c489c, type: 2}
