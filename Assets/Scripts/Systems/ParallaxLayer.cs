@@ -40,7 +40,7 @@ namespace AfterLife.Systems
             Vector3 view = cameraTransform.position;
             float scrolled = Mathf.Repeat(view.x * (1f - horizontalFollow), tileWidth);
             float x = view.x + tileWidth * Half - scrolled;
-            float y = Mathf.Lerp(homeY, view.y, verticalFollow);
+            float y = homeY + view.y * verticalFollow;
             transform.position = new Vector3(x, y, transform.position.z);
         }
     }
