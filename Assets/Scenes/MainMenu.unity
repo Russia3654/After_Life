@@ -585,7 +585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13d4539f6e327c84b90b6a5da0a63cb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AfterLife.UI.UIDrift
-  distance: {x: 110, y: 14}
+  distance: {x: 110, y: 0}
   period: 17
   startPoint: 0.4
 --- !u!1 &519420028

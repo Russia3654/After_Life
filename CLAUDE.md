@@ -1,7 +1,7 @@
 # After Life (Unity project folder "After LIfe")
 
-2D puzzle-platformer. Unity 6000.6.4f1, URP 2D, Input System 1.20, Cinemachine 3.x (install via Package Manager).
-Deadline 2026-12-11; target finish about 2026-11-30.
+2D puzzle-platformer, made for a client. Unity 6000.6.4f1, URP 2D, Input System 1.20, Cinemachine 3.x (install via Package Manager).
+Deadline 2026-12-11; target finish about 2026-12-07.
 
 ## How we work (rules)
 
@@ -48,10 +48,10 @@ Deadline 2026-12-11; target finish about 2026-11-30.
 4. Health, hazards, enemies (EnemyData, max 2 types), respawn.
 5. Save/load and GameManager with LevelData.
 6. UI (menu, pause, HUD), AudioManager, sound hooks.
-7. Two playable levels with a placement checklist; every puzzle solvable by switching. Starts with 7.0, an art pass (spirit, parallax, fog and lights, menu art).
+7. At least five playable levels with a placement checklist; every puzzle solvable by switching. Starts with 7.0, an art pass (spirit, parallax, fog and lights, menu art), then 7.1, a level kit (prefabs and a template scene), then one step per level, polish and a Windows build. Every level mixes street, cutaway building and underground areas in one scene: 1 apartment and metro entrance, 2 corner shop and metro station, 3 school and sewer, 4 hospital and service tunnels, 5 all of them combined.
 8. Optional: chunk-based level generator.
 
-Target: stages 1-2 on Nov 23-24, 3 on Nov 25, 4 on Nov 26, 5 on Nov 27, 6 on Nov 28, 7 on Nov 29-30, buffer to Dec 11.
+Target: stages 1-2 on Nov 23-24, 3 on Nov 25, 4 on Nov 26, 5 on Nov 27, 6 on Nov 28, art pass and level kit on Nov 28-29, levels 1-5 on Nov 30-Dec 4, polish and build on Dec 5-7, buffer to Dec 11.
 
 ## graphify
 
