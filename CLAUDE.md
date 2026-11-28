@@ -27,12 +27,14 @@ Deadline 2026-12-11; target finish about 2026-11-30.
 
 ## Game design (agreed)
 
-- Theme: a lost fox spirit that died for an unknown reason, trapped between Light (living world) and Shadow (spirit realm), looking for the way out. Ending stays unknown.
+- Theme: a lost flame spirit (small floating flame with a little face) that died for an unknown reason, trapped between Light (living world) and Shadow (spirit realm), looking for the way out. Ending stays unknown.
+- Setting: modern day. Light is an ordinary town, city or village; Shadow is the corrupted, deformed copy of the same places (inspired by the film "Coma": torn, tilted, floating blocks held by twisted roots). Each Shadow place mirrors a Light place.
 - Genre: puzzle-platformer. No combat for now; a simple attack only if time remains.
 - Opening: 15-20 s cutscene (fade plus text lines, no Timeline), then player control.
 - Worlds: two tilemap groups, `LightWorld` and `ShadowWorld` (each Ground, Hazards, Decoration), same coordinates in one scene. Switching toggles renderers and colliders only; player and camera do not move. `DimensionObject` marks objects that exist in one world only. Touching a solid or hazard of the other world on switch deals damage.
 - Camera: side-view follow, smooth damping, confiner.
-- Palette (pale pastels, defined in one place): Light cream `#FFF4E0` bg, peach `#F2C9A0` ground, coral `#E8705F` hazard, gold `#F5D76E` accent. Shadow lavender `#E4E0F5` bg, violet `#9C96C9` ground, magenta `#B0488F` hazard, cyan `#7FD1D9` accent. Player white with mint glow `#B8F0DC`.
+- Palette (dark in both worlds, defined in one place): Light warm dusk, sky `#241624` to `#7A4640`, ground `#8A5A48`, edge `#F2C9A0`, hazard `#FF7A5C`, gold `#F5D76E` accent. Shadow night, sky `#100D22` to `#2C2350`, ground `#4E477F`, edge `#9C96C9`, hazard `#D94FA8`, cyan `#7FD1D9` accent. Player white core with mint glow `#B8F0DC`.
+- Art direction: moody pixel art, overlapping parallax layers for depth, light fog, URP Bloom and 2D Lights. Main menu: layered dusk town with the Shadow copy hanging in the sky, spirit on a rooftop at the right, title and buttons on the left over dark soft fog (own art, inspired by the Dead Cells menu layout).
 - Collectibles: keys (required for progress) and spirit orbs (optional, some exist in only one world). HUD counter, plus vague clue lines unlocked at orb thresholds, stored in `LevelData`. Orb IDs and unlocked clues are saved. No orb is ever required to finish a level.
 - Controls: A/D move, Space jump, Shift run, Q switch dimension, E interact, Esc pause. Coyote time and jump buffer.
 - Features required: New Input System, Tilemaps, Cinemachine, ScriptableObjects (LevelData, EnemyData, GameSettings), event system, JSON save/load (Continue and New Game), UI (main menu, pause, HUD) and AudioManager.
@@ -46,7 +48,7 @@ Deadline 2026-12-11; target finish about 2026-11-30.
 4. Health, hazards, enemies (EnemyData, max 2 types), respawn.
 5. Save/load and GameManager with LevelData.
 6. UI (menu, pause, HUD), AudioManager, sound hooks.
-7. Two playable levels with a placement checklist; every puzzle solvable by switching.
+7. Two playable levels with a placement checklist; every puzzle solvable by switching. Starts with 7.0, an art pass (spirit, parallax, fog and lights, menu art).
 8. Optional: chunk-based level generator.
 
 Target: stages 1-2 on Nov 23-24, 3 on Nov 25, 4 on Nov 26, 5 on Nov 27, 6 on Nov 28, 7 on Nov 29-30, buffer to Dec 11.
