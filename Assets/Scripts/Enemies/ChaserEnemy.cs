@@ -18,6 +18,9 @@ namespace AfterLife.Enemies
         [Tooltip("The solid (non-trigger) collider that stands on the ground.")]
         [SerializeField]
         private Collider2D bodyCollider;
+        [Tooltip("The sprite to turn toward the walking direction. The art faces right.")]
+        [SerializeField]
+        private SpriteRenderer visual;
         [Tooltip("Layers the enemy can stand on and jump over (Ground, Pushable).")]
         [SerializeField]
         private LayerMask obstacleLayers;
@@ -117,6 +120,7 @@ namespace AfterLife.Enemies
         private void Walk(float speed)
         {
             Body.linearVelocity = new Vector2(direction * speed, Body.linearVelocity.y);
+            visual.flipX = direction < 0f;
         }
 
         /// <summary>Launches the enemy upward.</summary>
