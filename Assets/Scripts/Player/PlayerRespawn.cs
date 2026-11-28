@@ -95,7 +95,10 @@ namespace AfterLife.Player
 
             foreach (PushableBlock block in blocksToReset)
             {
-                block.ResetToStart();
+                if (block != null)
+                {
+                    block.ResetToStart();
+                }
             }
 
             body.simulated = true;

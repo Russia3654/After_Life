@@ -11456,8 +11456,7 @@ MonoBehaviour:
   dimensionManager: {fileID: 652393839}
   respawnDelay: 0.8
   respawnHealth: 1
-  blocksToReset:
-  - {fileID: 0}
+  blocksToReset: []
 --- !u!114 &1872226643
 MonoBehaviour:
   m_ObjectHideFlags: 0
