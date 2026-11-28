@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 76884772}
   - component: {fileID: 76884774}
   - component: {fileID: 76884773}
+  - component: {fileID: 76884775}
   m_Layer: 5
   m_Name: FogLow
   m_TagString: Untagged
@@ -194,6 +195,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 76884771}
   m_CullTransparentMesh: 1
+--- !u!114 &76884775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76884771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13d4539f6e327c84b90b6a5da0a63cb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AfterLife.UI.UIDrift
+  distance: {x: 160, y: 0}
+  period: 14
+  startPoint: 0.7
 --- !u!1 &83475301
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,6 +342,7 @@ GameObject:
   - component: {fileID: 212746994}
   - component: {fileID: 212746996}
   - component: {fileID: 212746995}
+  - component: {fileID: 212746997}
   m_Layer: 5
   m_Name: SpiritGlow
   m_TagString: Untagged
@@ -390,6 +407,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 212746993}
   m_CullTransparentMesh: 1
+--- !u!114 &212746997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212746993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13d4539f6e327c84b90b6a5da0a63cb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AfterLife.UI.UIDrift
+  distance: {x: 0, y: 14}
+  period: 3
+  startPoint: 0
 --- !u!1 &244020332
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,6 +508,7 @@ GameObject:
   - component: {fileID: 456909221}
   - component: {fileID: 456909223}
   - component: {fileID: 456909222}
+  - component: {fileID: 456909224}
   m_Layer: 5
   m_Name: FogMid
   m_TagString: Untagged
@@ -540,6 +573,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 456909220}
   m_CullTransparentMesh: 1
+--- !u!114 &456909224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456909220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13d4539f6e327c84b90b6a5da0a63cb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AfterLife.UI.UIDrift
+  distance: {x: 110, y: 14}
+  period: 17
+  startPoint: 0.4
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,6 +848,7 @@ GameObject:
   - component: {fileID: 603567357}
   - component: {fileID: 603567359}
   - component: {fileID: 603567358}
+  - component: {fileID: 603567360}
   m_Layer: 5
   m_Name: FogFar
   m_TagString: Untagged
@@ -864,6 +913,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 603567356}
   m_CullTransparentMesh: 1
+--- !u!114 &603567360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603567356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13d4539f6e327c84b90b6a5da0a63cb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AfterLife.UI.UIDrift
+  distance: {x: 140, y: 0}
+  period: 22
+  startPoint: 0
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1253,6 +1317,7 @@ GameObject:
   - component: {fileID: 797219092}
   - component: {fileID: 797219094}
   - component: {fileID: 797219093}
+  - component: {fileID: 797219095}
   m_Layer: 5
   m_Name: TextFog
   m_TagString: Untagged
@@ -1317,6 +1382,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 797219091}
   m_CullTransparentMesh: 1
+--- !u!114 &797219095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797219091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13d4539f6e327c84b90b6a5da0a63cb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AfterLife.UI.UIDrift
+  distance: {x: 40, y: 12}
+  period: 11
+  startPoint: 0.2
 --- !u!1 &876428650
 GameObject:
   m_ObjectHideFlags: 0
@@ -1782,6 +1862,8 @@ GameObject:
   - component: {fileID: 1027908108}
   - component: {fileID: 1027908110}
   - component: {fileID: 1027908109}
+  - component: {fileID: 1027908112}
+  - component: {fileID: 1027908111}
   m_Layer: 5
   m_Name: Spirit
   m_TagString: Untagged
@@ -1846,6 +1928,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027908107}
   m_CullTransparentMesh: 1
+--- !u!114 &1027908111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027908107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f8915fad6e19414db1a40c9c4d7eb7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AfterLife.UI.UIFlipbook
+  frames:
+  - {fileID: 21300000, guid: ceef0754eeb3bfa4bbf2f3f884479916, type: 3}
+  - {fileID: 21300000, guid: e5d9734c0f372fb42b3b0a126bf2d1fc, type: 3}
+  - {fileID: 21300000, guid: 96a530b689058b14795fd7806d3f6dfc, type: 3}
+  - {fileID: 21300000, guid: 5e4d27f84bcb9d349872e8e076cce381, type: 3}
+  - {fileID: 21300000, guid: decb83ec9c4aca34698a91af05a2f08b, type: 3}
+  - {fileID: 21300000, guid: bf7ccc911fcbb2d4da2fbbd9d69b41f8, type: 3}
+  - {fileID: 21300000, guid: 7ab2840a9e1e9b14d96f470ac4bbe274, type: 3}
+  - {fileID: 21300000, guid: b6667558a9419fb4a8c97c30b3b0ddb7, type: 3}
+  - {fileID: 21300000, guid: 4f4bf38aa7102534398dc898c04fb4b8, type: 3}
+  - {fileID: 21300000, guid: 5e10920e2ea356c46b0aeeff83ee9718, type: 3}
+  - {fileID: 21300000, guid: 8dff839e5840975449f63de865fb7c79, type: 3}
+  - {fileID: 21300000, guid: 511ee5c00821c0f4d824819f4da253fe, type: 3}
+  - {fileID: 21300000, guid: 7c96733e1d2990547a56080a3fd43047, type: 3}
+  - {fileID: 21300000, guid: 2eb8a9642adda0d49a8ab7e9c76680b0, type: 3}
+  - {fileID: 21300000, guid: 770637b4b60cb9b4dbcd0ee93cb45992, type: 3}
+  - {fileID: 21300000, guid: 97befc27dc021b6409c68a2b174054ee, type: 3}
+  - {fileID: 21300000, guid: f981a60c8750ba649bb4a777cea18ab8, type: 3}
+  - {fileID: 21300000, guid: 37e15e0fec73dfe4b90447e4eb2a2ec8, type: 3}
+  - {fileID: 21300000, guid: 4ea4a88f19fe48f469a3c5aadb38e6ee, type: 3}
+  - {fileID: 21300000, guid: e406cd0214da89947ac9c6afe6599b48, type: 3}
+  - {fileID: 21300000, guid: 3e908b3e9eed73f4e8da86db92e1736a, type: 3}
+  - {fileID: 21300000, guid: 2b8b4e358ba13ed49bff8890e22bdb11, type: 3}
+  - {fileID: 21300000, guid: a1f595743dc70924796c45a8782d5f82, type: 3}
+  - {fileID: 21300000, guid: fd1801008226c284bba4e6507a77a788, type: 3}
+  framesPerSecond: 10
+--- !u!114 &1027908112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027908107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13d4539f6e327c84b90b6a5da0a63cb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AfterLife.UI.UIDrift
+  distance: {x: 0, y: 14}
+  period: 3
+  startPoint: 0
 --- !u!1 &1037573036
 GameObject:
   m_ObjectHideFlags: 0
